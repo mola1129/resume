@@ -15,9 +15,9 @@ export const skills: SkillCategory[] = [
 		description: '即戦力として貢献可能な技術',
 		items: [
 			{ name: 'TypeScript', icon: 'ts' },
-			{ name: 'Java', icon: 'java' },
 			{ name: 'Vue.js', icon: 'vue' },
 			{ name: 'Nuxt.js', icon: 'nuxtjs' },
+			{ name: 'Java', icon: 'java' },
 			{ name: 'Spring Boot', icon: 'spring' },
 		]
 	},
@@ -25,12 +25,12 @@ export const skills: SkillCategory[] = [
 		category: '実務経験あり',
 		description: 'プロジェクトで使用した技術',
 		items: [
-			{ name: 'Docker', icon: 'docker' },
-			{ name: 'Kubernetes', icon: 'kubernetes' },
-			{ name: 'MySQL', icon: 'mysql' },
-			{ name: 'Redis', icon: 'redis' },
 			{ name: 'Node.js', icon: 'nodejs' },
 			{ name: 'Nitro', icon: 'nodejs' },
+			{ name: 'MySQL', icon: 'mysql' },
+			{ name: 'Docker', icon: 'docker' },
+			{ name: 'Kubernetes', icon: 'kubernetes' },
+			{ name: 'Redis', icon: 'redis' },
 			{ name: 'Trino', icon: 'postgres' },
 		]
 	},
