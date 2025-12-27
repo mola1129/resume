@@ -60,7 +60,8 @@ src/
 
 **Astro Pages** ([src/pages/index.astro](src/pages/index.astro)):
 - 静的コンテンツとページ構造には`.astro`ファイルを使用
-- インタラクティブ性が必要な場合は`client:*`ディレクティブでVueコンポーネントをインポート
+- Vueコンポーネントは通常のインポート文で使用可能。Astroが自動的に静的レンダリングとクライアントサイドハイドレーションを適切に処理する
+- インタラクティブ性が必要で明示的にクライアントサイドで実行したい場合のみ`client:*`ディレクティブを使用（例: `client:load`, `client:visible`）
 - データは`src/data/`のTypeScriptファイルから取得
 
 **Vue Components** ([src/components/ui/](src/components/ui/)):
@@ -115,3 +116,4 @@ import { skills } from '@/data/skills'
 - 設定は`tailwind.config.js`ではなく、CSSで`@theme`ディレクティブを使用
 - ダークモードはglobal.cssで`@custom-variant dark`を使用
 - PostCSS設定は不要
+- グラデーション背景は`bg-linear-to-*`を使用（v3の`bg-gradient-to-*`ではない）
