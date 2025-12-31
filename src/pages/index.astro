@@ -31,15 +31,22 @@ import { skills } from '@/data/skills';
 						<CardContent>
 							<div class="flex flex-wrap gap-2">
 								{category.items.map((skill) => (
-									<Badge variant="outline" class="px-3 py-1.5 gap-2 text-sm">
-										<img
-											src={`https://skillicons.dev/icons?i=${skill.icon}`}
-											alt={skill.name}
-											class="w-4 h-4 object-contain shrink-0"
-											loading="lazy"
-										/>
-										<span class="font-medium">{skill.name}</span>
-									</Badge>
+									<a
+										href={skill.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="inline-block transition-transform hover:scale-105"
+									>
+										<Badge variant="outline" class="px-3 py-1.5 gap-2 text-sm cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800">
+											<img
+												src={`https://skillicons.dev/icons?i=${skill.icon}`}
+												alt={skill.name}
+												class="w-4 h-4 object-contain shrink-0"
+												loading="lazy"
+											/>
+											<span class="font-medium">{skill.name}</span>
+										</Badge>
+									</a>
 								))}
 							</div>
 						</CardContent>
