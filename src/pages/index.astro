@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { skills } from '@/data/skills';
 
 ---
@@ -9,56 +10,42 @@ import { skills } from '@/data/skills';
 	<main class="min-h-screen bg-linear-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900 py-12 px-4">
 		<div class="max-w-6xl mx-auto">
 			<!-- ヘッダーセクション -->
-			<header class="text-center mb-12">
-				<h1 class="text-5xl font-bold text-slate-900 dark:text-slate-50 mb-4">
-					技術スタック
+			<header class="text-center mb-16">
+				<h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50">
+					Skills
 				</h1>
-				<p class="text-xl text-slate-600 dark:text-slate-400">
-					Software Engineer Skills & Experience
-				</p>
 			</header>
 
 			<!-- スキルカードグリッド -->
-			<div class="space-y-8">
+			<div class="space-y-6">
 				{skills.map((category) => (
-				<div>
-				<Card class="border shadow-sm transition-all duration-300">
-						<CardHeader class="pb-4">
-								<div class="flex items-center gap-3">
-								<CardTitle class="text-2xl text-slate-900 dark:text-slate-50">
-									{category.category}
-
-								</CardTitle>
-							</div>
+					<Card class="border shadow-sm transition-all duration-300">
+						<CardHeader class="pb-3">
+							<CardTitle class="text-2xl text-slate-900 dark:text-slate-50">
+								{category.category}
+							</CardTitle>
 							<CardDescription class="text-slate-600 dark:text-slate-400">
-									{category.description}
-								</CardDescription>
-							</CardHeader>
-							<CardContent>
-								<div class="grid grid-cols-3 md:grid-cols-5 gap-3">
-									{category.items.map((skill) => (
-										<div class="aspect-square p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:shadow-md transition-all duration-200 flex flex-col items-center justify-center gap-2">
-											<div class="shrink-0 w-14 h-14 bg-slate-100 dark:bg-slate-700 rounded p-2">
-												<img 
-													src={`https://skillicons.dev/icons?i=${skill.icon}`}
-													alt={skill.name}
-													class="w-full h-full object-contain"
-													loading="lazy"
-												/>
-											</div>
-											<h3 class="font-semibold text-base text-center text-slate-900 dark:text-slate-50 leading-tight">
-												{skill.name}
-											</h3>
-										</div>
-									))}
-								</div>
-							</CardContent>
-						</Card>
-					</div>
+								{category.description}
+							</CardDescription>
+						</CardHeader>
+						<CardContent>
+							<div class="flex flex-wrap gap-2">
+								{category.items.map((skill) => (
+									<Badge variant="outline" class="px-3 py-1.5 gap-2 text-sm">
+										<img
+											src={`https://skillicons.dev/icons?i=${skill.icon}`}
+											alt={skill.name}
+											class="w-4 h-4 object-contain shrink-0"
+											loading="lazy"
+										/>
+										<span class="font-medium">{skill.name}</span>
+									</Badge>
+								))}
+							</div>
+						</CardContent>
+					</Card>
 				))}
 			</div>
-
-
 		</div>
 	</main>
 </Layout>

@@ -11,8 +11,8 @@ export interface SkillCategory {
 
 export const skills: SkillCategory[] = [
 	{
-		category: '得意領域',
-		description: '即戦力として貢献可能な技術',
+		category: 'Expert',
+		description: '最も得意な技術スタック',
 		items: [
 			{ name: 'TypeScript', icon: 'ts' },
 			{ name: 'Vue.js', icon: 'vue' },
@@ -22,8 +22,8 @@ export const skills: SkillCategory[] = [
 		]
 	},
 	{
-		category: '実務経験あり',
-		description: 'プロジェクトで使用した技術',
+		category: 'Intermediate',
+		description: '実務で使用経験のある技術',
 		items: [
 			{ name: 'Node.js', icon: 'nodejs' },
 			{ name: 'Nitro', icon: 'nodejs' },
@@ -32,6 +32,15 @@ export const skills: SkillCategory[] = [
 			{ name: 'Kubernetes', icon: 'kubernetes' },
 			{ name: 'Redis', icon: 'redis' },
 			{ name: 'Trino', icon: 'postgres' },
+		]
+	},
+	{
+		category: 'Basic',
+		description: '基礎的な知識と経験',
+		items: [
+			{ name: 'C++', icon: 'cpp' },
+			{ name: 'React', icon: 'react' },
+			{ name: 'Python', icon: 'py' },
 		]
 	},
 ];
