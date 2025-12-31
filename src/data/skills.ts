@@ -1,14 +1,4 @@
-export interface Skill {
-	name: string;
-	icon: string;
-	url: string;
-}
-
-export interface SkillCategory {
-	category: string;
-	description: string;
-	items: Skill[];
-}
+import type { SkillCategory } from '@/types';
 
 export const skills: SkillCategory[] = [
 	{

@@ -1,15 +1,4 @@
-export interface Contact {
-	type: string;
-	url?: string;
-	icon?: string;
-}
-
-export interface Profile {
-	name: string;
-	title: string;
-	summary: string;
-	contacts: Contact[];
-}
+import type { Profile } from '@/types';
 
 export const profile: Profile = {
 	name: 'mola1129',

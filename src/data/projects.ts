@@ -1,18 +1,4 @@
-export interface Technology {
-	name: string;
-	icon: string;
-}
-
-export interface Project {
-	name: string;
-	period: string;
-	company?: string;
-	role: string;
-	description: string;
-	type: 'web' | 'mobile' | 'infrastructure' | 'data';
-	technologies: Technology[];
-	achievements?: string[];
-}
+import type { Project } from '@/types';
 
 export const projects: Project[] = [
 	{
