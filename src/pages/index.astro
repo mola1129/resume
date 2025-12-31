@@ -1,57 +1,120 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { skills } from '@/data/skills';
-
+import { profile } from '@/data/profile';
+import profileImage from '@/assets/mola1129.png';
 ---
 
 <Layout>
-	<main class="min-h-screen bg-linear-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900 py-12 px-4">
-		<div class="max-w-6xl mx-auto">
-			<!-- ヘッダーセクション -->
-			<header class="text-center mb-16">
-				<h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50">
-					Skills
-				</h1>
-			</header>
+	<main class="min-h-screen bg-white dark:bg-slate-950 py-12 px-4 md:px-8">
+		<div class="max-w-5xl mx-auto">
+			<div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8">
+				<!-- 左カラム: サイドバー -->
+				<aside class="space-y-6">
+					<!-- 写真 -->
+					<div class="flex justify-center md:justify-start">
+						<img
+							src={profileImage.src}
+							alt={profile.name}
+							class="w-40 h-40 rounded-full object-cover border-2 border-slate-300 dark:border-slate-700"
+							width={160}
+							height={160}
+						/>
+					</div>
 
-			<!-- スキルカードグリッド -->
-			<div class="space-y-6">
-				{skills.map((category) => (
-					<Card class="border shadow-sm transition-all duration-300">
-						<CardHeader class="pb-3">
-							<CardTitle class="text-2xl text-slate-900 dark:text-slate-50">
-								{category.category}
-							</CardTitle>
-							<CardDescription class="text-slate-600 dark:text-slate-400">
-								{category.description}
-							</CardDescription>
-						</CardHeader>
-						<CardContent>
-							<div class="flex flex-wrap gap-2">
-								{category.items.map((skill) => (
-									<a
-										href={skill.url}
-										target="_blank"
-										rel="noopener noreferrer"
-										class="inline-block transition-transform hover:scale-105"
-									>
-										<Badge variant="outline" class="px-3 py-1.5 gap-2 text-sm cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800">
-											<img
-												src={`https://skillicons.dev/icons?i=${skill.icon}`}
-												alt={skill.name}
-												class="w-4 h-4 object-contain shrink-0"
-												loading="lazy"
-											/>
-											<span class="font-medium">{skill.name}</span>
-										</Badge>
-									</a>
-								))}
-							</div>
-						</CardContent>
-					</Card>
-				))}
+					<!-- 名前・役職 -->
+					<div class="text-center md:text-left">
+						<h1 class="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2">
+							{profile.name}
+						</h1>
+						<p class="text-base text-slate-700 dark:text-slate-300">
+							{profile.title}
+						</p>
+					</div>
+
+					<!-- 連絡先 -->
+					<div>
+						<h2 class="text-sm font-semibold text-slate-900 dark:text-slate-50 mb-3 uppercase tracking-wide">
+							Contact
+						</h2>
+						<div class="space-y-2">
+							{profile.contacts.map((contact) => (
+								<a
+									href={contact.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+								>
+									{contact.icon === 'mail' ? (
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 shrink-0">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+										</svg>
+									) : contact.icon && (
+										<img
+											src={`https://skillicons.dev/icons?i=${contact.icon}`}
+											alt={contact.type}
+											class="w-5 h-5 object-contain shrink-0"
+											loading="lazy"
+										/>
+									)}
+									<span class="break-all">{contact.type}</span>
+								</a>
+							))}
+						</div>
+					</div>
+				</aside>
+
+				<!-- 右カラム: メインコンテンツ -->
+				<main class="space-y-8">
+					<!-- Career Summary -->
+					<section>
+						<h2 class="text-xl font-bold text-slate-900 dark:text-slate-50 mb-3 pb-2 border-b-2 border-slate-900 dark:border-slate-100">
+							Career Summary
+						</h2>
+						<p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+							{profile.summary}
+						</p>
+					</section>
+
+					<!-- Skills -->
+					<section>
+						<h2 class="text-xl font-bold text-slate-900 dark:text-slate-50 mb-4 pb-2 border-b-2 border-slate-900 dark:border-slate-100">
+							Skills
+						</h2>
+						<div class="space-y-5">
+							{skills.map((category) => (
+								<div>
+									<div class="mb-2">
+										<h3 class="text-base font-semibold text-slate-900 dark:text-slate-50">
+											{category.category}
+										</h3>
+										<p class="text-sm text-slate-600 dark:text-slate-400">
+											{category.description}
+										</p>
+									</div>
+									<div class="flex flex-wrap gap-2">
+										{category.items.map((skill) => (
+											<a
+												href={skill.url}
+												target="_blank"
+												rel="noopener noreferrer"
+												class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-slate-400 dark:hover:border-slate-600 transition-colors"
+											>
+												<img
+													src={`https://skillicons.dev/icons?i=${skill.icon}`}
+													alt={skill.name}
+													class="w-4 h-4 object-contain shrink-0"
+													loading="lazy"
+												/>
+												<span class="text-sm font-medium text-slate-700 dark:text-slate-300">{skill.name}</span>
+											</a>
+										))}
+									</div>
+								</div>
+							))}
+						</div>
+					</section>
+				</main>
 			</div>
 		</div>
 	</main>
