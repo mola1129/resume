@@ -4,7 +4,7 @@
 
 ## プロジェクト概要
 
-Astro 5、Vue 3、Tailwind CSS 4で構築された個人履歴書・ポートフォリオサイトです。技術スキルと経験を紹介し、GitHub Pagesの`https://mola1129.github.io/resume`にデプロイされています。
+Astro 5、Vue 3、Tailwind CSS 4で構築された個人履歴書・ポートフォリオサイトです。技術スキルと経験を紹介し、`https://mola1129.dev`にデプロイされています。
 
 ## 開発コマンド
 
@@ -51,7 +51,7 @@ src/
 
 ### 主要な設定ファイル
 
-- `astro.config.mjs`: サイトURLは`https://mola1129.github.io`、ベースパスは`/resume`
+- `astro.config.mjs`: サイトURLは`https://mola1129.dev`、ベースパスは`/`（ルート）
 - `components.json`: shadcn-vueの設定（New Yorkスタイル、Slateベースカラー）
 - `tsconfig.json`: パスエイリアス`@/*`は`./src/*`にマッピング
 - `.github/workflows/deploy.yml`: `main`ブランチへのpush時に自動デプロイ
@@ -91,7 +91,7 @@ src/
 - **Node version**: 22
 
 デプロイメントを変更する際の注意点:
-- ベースパス`/resume`が必須（astro.config.mjsで設定）
+- ベースパスは`/`（ルート）に設定（astro.config.mjsで設定）
 - サイトは`./dist/`ディレクトリにビルドされる
 - `dist/`ディレクトリはコミットしない（.gitignoreに記載）
 
