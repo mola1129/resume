@@ -1,46 +1,54 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { skills } from '@/data/skills';
-import { profile } from '@/data/profile';
-import { projects } from '@/data/projects';
-import profileImage from '@/assets/mola1129.png';
-import ProfileSidebar from '@/components/ProfileSidebar.vue';
-import ProjectExperience from '@/components/ProjectExperience.vue';
-import SkillsSection from '@/components/SkillsSection.vue';
+import Layout from "../layouts/Layout.astro";
+import { skills } from "@/data/skills";
+import { profile } from "@/data/profile";
+import { projects } from "@/data/projects";
+import profileImage from "@/assets/mola1129.png";
+import ProfileSidebar from "@/components/ProfileSidebar.vue";
+import ProjectExperience from "@/components/ProjectExperience.vue";
+import SkillsSection from "@/components/SkillsSection.vue";
 ---
 
 <Layout>
-	<main class="min-h-screen bg-white dark:bg-slate-950 py-12 px-4 md:px-8">
-		<div class="max-w-5xl mx-auto">
-			<div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8">
-				<!-- 左カラム: サイドバー -->
-				<aside>
-					<ProfileSidebar client:load profile={profile} profileImageSrc={profileImage.src} />
-				</aside>
+  <main class="min-h-screen bg-white px-4 py-12 md:px-8 dark:bg-slate-950">
+    <div class="mx-auto max-w-5xl">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-[280px_1fr]">
+        <!-- 左カラム: サイドバー -->
+        <aside>
+          <ProfileSidebar
+            client:load
+            profile={profile}
+            profileImageSrc={profileImage.src}
+          />
+        </aside>
 
-				<!-- 右カラム: メインコンテンツ -->
-				<main class="space-y-10">
-					<!-- Career Summary -->
-					<section>
-						<h2 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-slate-50 mb-4 pb-2 border-b-2 border-slate-900 dark:border-slate-100">
-							Career Summary
-						</h2>
-						<p class="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
-							{profile.summary}
-						</p>
-					</section>
+        <!-- 右カラム: メインコンテンツ -->
+        <main class="space-y-10">
+          <!-- Career Summary -->
+          <section>
+            <h2
+              class="mb-4 border-b-2 border-slate-900 pb-2 text-xl font-bold text-slate-900 md:text-2xl dark:border-slate-100 dark:text-slate-50"
+            >
+              Career Summary
+            </h2>
+            <p
+              class="text-base leading-relaxed text-slate-700 dark:text-slate-300"
+            >
+              {profile.summary}
+            </p>
+          </section>
 
-					<!-- Project Experience -->
-					<section>
-						<ProjectExperience client:load projects={projects} />
-					</section>
+          <!-- Project Experience -->
+          <section>
+            <ProjectExperience client:load projects={projects} />
+          </section>
 
-					<!-- Skills -->
-					<section>
-						<SkillsSection client:load categories={skills} />
-					</section>
-				</main>
-			</div>
-		</div>
-	</main>
+          <!-- Skills -->
+          <section>
+            <SkillsSection client:load categories={skills} />
+          </section>
+        </main>
+      </div>
+    </div>
+  </main>
 </Layout>

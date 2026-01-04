@@ -29,6 +29,7 @@ pnpm astro add <package>  # インテグレーションの追加
 ## アーキテクチャ
 
 ### 技術スタック
+
 - **Framework**: Astro 5.16+（Islands architectureを採用した静的サイトジェネレーター）
 - **UI Framework**: Vue 3.5+（`@astrojs/vue`経由でインタラクティブなコンポーネントに使用）
 - **Styling**: Tailwind CSS 4.1+（Viteプラグイン使用、PostCSSではない）
@@ -59,18 +60,21 @@ src/
 ### コンポーネントアーキテクチャ
 
 **Astro Pages** ([src/pages/index.astro](src/pages/index.astro)):
+
 - 静的コンテンツとページ構造には`.astro`ファイルを使用
 - Vueコンポーネントは通常のインポート文で使用可能。Astroが自動的に静的レンダリングとクライアントサイドハイドレーションを適切に処理する
 - インタラクティブ性が必要で明示的にクライアントサイドで実行したい場合のみ`client:*`ディレクティブを使用（例: `client:load`, `client:visible`）
 - データは`src/data/`のTypeScriptファイルから取得
 
 **Vue Components** ([src/components/ui/](src/components/ui/)):
+
 - `src/components/ui/`に配置（shadcn-vueコンポーネント）
 - Composition APIを使用したVue 3 SFCとして記述
 - 条件付きスタイリングには`@/lib/utils`の`cn()`ユーティリティを使用
 - カスタムCSS変数を使用したTailwindクラスでスタイリング
 
 **スタイリングシステム**:
+
 - Tailwind CSS 4をViteプラグイン経由で使用（PostCSSではない）
 - [src/styles/global.css](src/styles/global.css)で`@theme inline`を使用したカスタムテーマ
 - `.dark`クラスバリアントでダークモードを実装
@@ -79,6 +83,7 @@ src/
 ### データレイヤー
 
 スキルやコンテンツは`src/data/`のTypeScriptファイルで定義されています:
+
 - 型付きインターフェースをエクスポート（例: `Skill`、`SkillCategory`）
 - Astroコンポーネントで直接インポートして使用
 - 現在は`skillicons.dev`の外部アイコンを使用してスキルを表示
@@ -91,6 +96,7 @@ src/
 - **Node version**: 22
 
 デプロイメントを変更する際の注意点:
+
 - ベースパスは`/`（ルート）に設定（astro.config.mjsで設定）
 - サイトは`./dist/`ディレクトリにビルドされる
 - `dist/`ディレクトリはコミットしない（.gitignoreに記載）
@@ -104,15 +110,17 @@ shadcn-vueコンポーネントを追加する場合は、`src/components/ui/`�
 ### TypeScriptパスエイリアス
 
 インポートには`@/`プレフィックスを使用してください:
+
 ```typescript
-import { cn } from '@/lib/utils'
-import { Card } from '@/components/ui/card'
-import { skills } from '@/data/skills'
+import { cn } from "@/lib/utils";
+import { Card } from "@/components/ui/card";
+import { skills } from "@/data/skills";
 ```
 
 ### Tailwind CSS 4に関する考慮事項
 
 このプロジェクトはViteプラグインでTailwind CSS 4を使用しています。v3との主な違い:
+
 - 設定は`tailwind.config.js`ではなく、CSSで`@theme`ディレクティブを使用
 - ダークモードはglobal.cssで`@custom-variant dark`を使用
 - PostCSS設定は不要
