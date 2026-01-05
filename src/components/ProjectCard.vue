@@ -71,23 +71,7 @@ const duration = computed(() => calculateDuration(props.project.period));
         {{ project.description }}
       </p>
 
-      <div class="mb-5">
-        <h4
-          class="mb-2 text-sm font-semibold tracking-wide text-slate-600 uppercase md:text-base dark:text-slate-400"
-        >
-          使用技術
-        </h4>
-        <div class="flex flex-wrap gap-2">
-          <SkillBadge
-            v-for="tech in project.technologies"
-            :key="tech.name"
-            :name="tech.name"
-            :icon="tech.icon"
-          />
-        </div>
-      </div>
-
-      <div v-if="project.achievements && project.achievements.length > 0">
+      <div v-if="project.achievements && project.achievements.length > 0" class="mb-5">
         <h4
           class="mb-2 text-sm font-semibold tracking-wide text-slate-600 uppercase md:text-base dark:text-slate-400"
         >
@@ -105,6 +89,22 @@ const duration = computed(() => calculateDuration(props.project.period));
             <span>{{ achievement }}</span>
           </li>
         </ul>
+      </div>
+
+      <div>
+        <h4
+          class="mb-2 text-sm font-semibold tracking-wide text-slate-600 uppercase md:text-base dark:text-slate-400"
+        >
+          使用技術
+        </h4>
+        <div class="flex flex-wrap gap-2">
+          <SkillBadge
+            v-for="tech in project.technologies"
+            :key="tech.name"
+            :name="tech.name"
+            :icon="tech.icon"
+          />
+        </div>
       </div>
     </div>
   </div>
