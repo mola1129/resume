@@ -7,7 +7,6 @@ export interface Skill {
 
 export interface SkillCategory {
   category: string;
-  description: string;
   items: Skill[];
 }
 

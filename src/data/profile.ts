@@ -2,7 +2,7 @@ import type { Profile } from "@/types";
 
 export const profile: Profile = {
   name: "mola1129",
-  title: "Software Engineer",
+  title: "ソフトウェアエンジニア",
   summary:
     "フルスタックエンジニアとして、フロントエンドからバックエンド、インフラまで幅広い領域で開発経験があります。特にTypeScript/Vue.jsとJava/Spring Bootを用いたWebアプリケーション開発を得意としています。",
   contacts: [

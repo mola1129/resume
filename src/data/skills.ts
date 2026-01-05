@@ -2,8 +2,7 @@ import type { SkillCategory } from "@/types";
 
 export const skills: SkillCategory[] = [
   {
-    category: "Expert",
-    description: "最も得意な技術スタック",
+    category: "得意",
     items: [
       {
         name: "TypeScript",
@@ -25,8 +24,7 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
-    category: "Intermediate",
-    description: "実務で使用経験のある技術",
+    category: "実務経験あり",
     items: [
       {
         name: "Node.js",
@@ -50,8 +48,7 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
-    category: "Basic",
-    description: "基礎的な知識と経験",
+    category: "基礎知識",
     items: [
       { name: "C", icon: "c", url: "https://en.cppreference.com/w/c" },
       { name: "C++", icon: "cpp", url: "https://en.cppreference.com/w/" },
