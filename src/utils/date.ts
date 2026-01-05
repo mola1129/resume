@@ -32,3 +32,18 @@ export function calculateDuration(period: string): string {
 
   return result.length > 0 ? `(${result.join("")})` : "";
 }
+
+/**
+ * 指定された日付を日本語フォーマットで文字列に変換
+ * @param date - フォーマットする日付（デフォルト: 現在日時）
+ * @returns 日本語フォーマットされた日付文字列
+ */
+export function formatDateJapanese(date: Date = new Date()): string {
+  return new Intl.DateTimeFormat("ja-JP", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(date);
+}

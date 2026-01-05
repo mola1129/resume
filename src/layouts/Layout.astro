@@ -1,5 +1,10 @@
 ---
 import "../styles/global.css";
+import Footer from "@/components/Footer.vue";
+import { formatDateJapanese } from "@/utils/date";
+
+const buildTime = new Date();
+const formattedDate = formatDateJapanese(buildTime);
 ---
 
 <!doctype html>
@@ -19,6 +24,7 @@ import "../styles/global.css";
   </head>
   <body>
     <slot />
+    <Footer formattedDate={formattedDate} />
   </body>
 </html>
 
