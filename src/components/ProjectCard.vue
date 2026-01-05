@@ -71,7 +71,10 @@ const duration = computed(() => calculateDuration(props.project.period));
         {{ project.description }}
       </p>
 
-      <div v-if="project.achievements && project.achievements.length > 0" class="mb-5">
+      <div
+        v-if="project.achievements && project.achievements.length > 0"
+        class="mb-5"
+      >
         <h4
           class="mb-2 text-sm font-semibold tracking-wide text-slate-600 uppercase md:text-base dark:text-slate-400"
         >
