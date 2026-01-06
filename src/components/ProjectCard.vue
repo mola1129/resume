@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { Project } from "@/types";
+import type { ProjectWithHtml } from "@/types";
 import { calculateDuration } from "@/utils/date";
 import { TIMELINE_STYLES } from "@/constants";
 import ProjectTypeIcon from "./ProjectTypeIcon.vue";
 import SkillBadge from "./SkillBadge.vue";
 
 interface Props {
-  project: Project;
+  project: ProjectWithHtml;
   isLast: boolean;
 }
 
@@ -65,14 +65,13 @@ const duration = computed(() => calculateDuration(props.project.period));
         </div>
       </div>
 
-      <p
-        class="mb-5 text-base leading-relaxed text-slate-700 dark:text-slate-300"
-      >
-        {{ project.description }}
-      </p>
+      <div
+        class="project-content mb-5 text-base leading-relaxed text-slate-700 dark:text-slate-300"
+        v-html="project.descriptionHtml"
+      />
 
       <div
-        v-if="project.achievements && project.achievements.length > 0"
+        v-if="project.achievementsHtml && project.achievementsHtml.length > 0"
         class="mb-5"
       >
         <h4
@@ -81,15 +80,15 @@ const duration = computed(() => calculateDuration(props.project.period));
           成果・実績
         </h4>
         <ul
-          class="space-y-1.5 text-sm text-slate-700 md:text-base dark:text-slate-300"
+          class="project-content space-y-1.5 text-sm text-slate-700 md:text-base dark:text-slate-300"
         >
           <li
-            v-for="achievement in project.achievements"
-            :key="achievement"
+            v-for="(achievement, index) in project.achievementsHtml"
+            :key="index"
             class="flex gap-2"
           >
             <span class="shrink-0 text-slate-400 dark:text-slate-600">▸</span>
-            <span>{{ achievement }}</span>
+            <span v-html="achievement" />
           </li>
         </ul>
       </div>

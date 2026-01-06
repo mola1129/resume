@@ -1,4 +1,8 @@
 ---
+import { remark } from "remark";
+import remarkRehype from "remark-rehype";
+import rehypeExternalLinks from "rehype-external-links";
+import rehypeStringify from "rehype-stringify";
 import Layout from "../layouts/Layout.astro";
 import { skills } from "@/data/skills";
 import { profile } from "@/data/profile";
@@ -7,6 +11,29 @@ import profileImage from "@/assets/mola1129.png";
 import ProfileSidebar from "@/components/ProfileSidebar.vue";
 import ProjectExperience from "@/components/ProjectExperience.vue";
 import SkillsSection from "@/components/SkillsSection.vue";
+
+// Markdownをレンダリング
+const processMarkdown = async (text: string) => {
+  const result = await remark()
+    .use(remarkRehype)
+    .use(rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer"] })
+    .use(rehypeStringify)
+    .process(text);
+  return result.toString();
+};
+
+const summaryHtml = await processMarkdown(profile.summary);
+
+// プロジェクトのMarkdown処理
+const projectsWithHtml = await Promise.all(
+  projects.map(async (project) => ({
+    ...project,
+    descriptionHtml: await processMarkdown(project.description),
+    achievementsHtml: project.achievements
+      ? await Promise.all(project.achievements.map(processMarkdown))
+      : undefined,
+  }))
+);
 ---
 
 <Layout>
@@ -31,16 +58,15 @@ import SkillsSection from "@/components/SkillsSection.vue";
             >
               [WIP] 経歴概要
             </h2>
-            <p
-              class="text-base leading-relaxed text-slate-700 dark:text-slate-300"
-            >
-              {profile.summary}
-            </p>
+            <div
+              class="summary-content text-base leading-relaxed text-slate-700 dark:text-slate-300"
+              set:html={summaryHtml.toString()}
+            />
           </section>
 
           <!-- Project Experience -->
           <section>
-            <ProjectExperience client:load projects={projects} />
+            <ProjectExperience client:load projects={projectsWithHtml} />
           </section>
 
           <!-- Skills -->

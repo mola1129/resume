@@ -4,7 +4,7 @@ export const profile: Profile = {
   name: "mola1129",
   title: "ソフトウェアエンジニア",
   summary:
-    "フルスタックエンジニアとして、フロントエンドからバックエンド、インフラまで幅広い領域で開発経験があります。特にTypeScript/Vue.jsとJava/Spring Bootを用いたWebアプリケーション開発を得意としています。",
+    "フルスタックエンジニアとして、フロントエンドからバックエンド、インフラまで幅広い領域で開発経験があります。特に**TypeScript/Vue.js**と**Java/Spring Boot**を用いたWebアプリケーション開発を得意としています。[DS.INSIGHT](https://ds.yahoo.co.jp/service/insight/)の開発をしていました。",
   contacts: [
     {
       type: "Email",

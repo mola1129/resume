@@ -42,3 +42,8 @@ export interface Project {
   technologies: Technology[];
   achievements?: string[];
 }
+
+export interface ProjectWithHtml extends Project {
+  descriptionHtml: string;
+  achievementsHtml?: string[];
+}

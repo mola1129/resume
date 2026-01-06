@@ -129,4 +129,23 @@
     font-size: 15px;
     line-height: 1.7;
   }
+  .summary-content a,
+  .project-content a {
+    color: oklch(0.488 0.243 264.376);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+  }
+  .summary-content a:hover,
+  .project-content a:hover {
+    color: oklch(0.398 0.243 264.376);
+  }
+  .dark .summary-content a,
+  .dark .project-content a {
+    color: oklch(0.696 0.17 162.48);
+  }
+  .dark .summary-content a:hover,
+  .dark .project-content a:hover {
+    color: oklch(0.796 0.17 162.48);
+  }
 }

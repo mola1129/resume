@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { Project } from "@/types";
+import type { ProjectWithHtml } from "@/types";
 import ProjectCard from "./ProjectCard.vue";
 
 interface Props {
-  projects: Project[];
+  projects: ProjectWithHtml[];
 }
 
 defineProps<Props>();
