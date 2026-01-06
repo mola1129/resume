@@ -19,8 +19,7 @@ export interface Contact {
 
 export interface Profile {
   name: string;
-  title: string;
-  summary: string;
+  description: string;
   contacts: Contact[];
 }
 

@@ -4,9 +4,10 @@ import remarkRehype from "remark-rehype";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeStringify from "rehype-stringify";
 import Layout from "../layouts/Layout.astro";
-import { skills } from "@/data/skills";
-import { profile } from "@/data/profile";
-import { projects } from "@/data/projects";
+import { skills } from "@/data/contents";
+import { profile } from "@/data/contents";
+import { careerSummary } from "@/data/contents";
+import { projects } from "@/data/contents";
 import profileImage from "@/assets/mola1129.png";
 import ProfileSidebar from "@/components/ProfileSidebar.vue";
 import ProjectExperience from "@/components/ProjectExperience.vue";
@@ -16,13 +17,16 @@ import SkillsSection from "@/components/SkillsSection.vue";
 const processMarkdown = async (text: string) => {
   const result = await remark()
     .use(remarkRehype)
-    .use(rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer"] })
+    .use(rehypeExternalLinks, {
+      target: "_blank",
+      rel: ["noopener", "noreferrer"],
+    })
     .use(rehypeStringify)
     .process(text);
   return result.toString();
 };
 
-const summaryHtml = await processMarkdown(profile.summary);
+const summaryHtml = await processMarkdown(careerSummary);
 
 // プロジェクトのMarkdown処理
 const projectsWithHtml = await Promise.all(
@@ -32,7 +36,7 @@ const projectsWithHtml = await Promise.all(
     achievementsHtml: project.achievements
       ? await Promise.all(project.achievements.map(processMarkdown))
       : undefined,
-  }))
+  })),
 );
 ---
 

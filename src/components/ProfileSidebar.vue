@@ -32,7 +32,7 @@ const iconClass = `${ICON_SIZES.CONTACT} shrink-0`;
         {{ profile.name }}
       </h1>
       <p class="text-base text-slate-700 md:text-lg dark:text-slate-300">
-        {{ profile.title }}
+        {{ profile.description }}
       </p>
     </div>
 
