@@ -8,7 +8,6 @@ import { skills } from "@/data/contents";
 import { profile } from "@/data/contents";
 import { careerSummary } from "@/data/contents";
 import { projects } from "@/data/contents";
-import profileImage from "@/assets/mola1129.png";
 import ProfileSidebar from "@/components/ProfileSidebar.vue";
 import ProjectExperience from "@/components/ProjectExperience.vue";
 import SkillsSection from "@/components/SkillsSection.vue";
@@ -49,7 +48,7 @@ const projectsWithHtml = await Promise.all(
           <ProfileSidebar
             client:load
             profile={profile}
-            profileImageSrc={profileImage.src}
+            profileImageSrc="/profile.png"
           />
         </aside>
 
