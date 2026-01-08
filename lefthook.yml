@@ -11,7 +11,3 @@ pre-commit:
     format:
       run: pnpm prettier --write {staged_files}
       stage_fixed: true
-
-commit-msg:
-  commands:
-    # コミットメッセージの検証を追加する場合はここに記述
