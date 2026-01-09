@@ -25,14 +25,19 @@ pnpm test:update      # Update test snapshots
 
 ## Visual Regression Testing
 
-First-time setup:
+Desktop/Tablet/Mobile × Light/Dark = 6 tests. Runs automatically on PRs.
+
+**First-time setup:**
 ```bash
 pnpm exec playwright install chromium --with-deps
 pnpm build
 pnpm test:update
 ```
 
-Tests run automatically on PRs via GitHub Actions.
+**Troubleshooting:**
+- Test fails → `pnpm test:report` to check diff
+- Intentional change → `pnpm test:update`
+- Browser install fails → Use CI
 
 ## Stack
 
