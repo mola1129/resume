@@ -42,8 +42,37 @@ jobs:
       - name: Build site
         run: pnpm build
 
+      - name: Check if snapshots exist
+        id: check-snapshots
+        run: |
+          if [ -d "tests/visual-regression.spec.ts-snapshots" ] && [ "$(ls -A tests/visual-regression.spec.ts-snapshots/*.png 2>/dev/null | wc -l)" -gt 0 ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "Snapshots already exist, will run normal tests"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "No snapshots found, will generate them"
+          fi
+
       - name: Run visual regression tests
-        run: pnpm test:update
+        run: |
+          if [ "${{ steps.check-snapshots.outputs.exists }}" = "false" ]; then
+            pnpm test:update
+          else
+            pnpm test
+          fi
+
+      - name: Commit snapshots if new
+        if: steps.check-snapshots.outputs.exists == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tests/visual-regression.spec.ts-snapshots/
+
+          if ! git diff --staged --quiet; then
+            git commit -m "Add visual regression baseline snapshots [skip ci]"
+            git push
+            echo "Baseline snapshots committed and pushed"
+          fi
 
       - name: Upload snapshots
         uses: actions/upload-artifact@v4
