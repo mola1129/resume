@@ -43,7 +43,7 @@ jobs:
         run: pnpm build
 
       - name: Run visual regression tests
-        run: pnpm test:update
+        run: pnpm test
 
       - name: Upload snapshots
         uses: actions/upload-artifact@v4

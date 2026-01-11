@@ -28,6 +28,7 @@ pnpm test:update      # Update test snapshots
 Desktop/Tablet/Mobile × Light/Dark = 6 tests. Runs automatically on PRs.
 
 **First-time setup:**
+
 ```bash
 pnpm exec playwright install chromium --with-deps
 pnpm build
@@ -35,6 +36,7 @@ pnpm test:update
 ```
 
 **Troubleshooting:**
+
 - Test fails → `pnpm test:report` to check diff
 - Intentional change → `pnpm test:update`
 - Browser install fails → Use CI
