@@ -1,16 +1,13 @@
 ---
-import { remark } from "remark";
-import remarkRehype from "remark-rehype";
-import rehypeExternalLinks from "rehype-external-links";
-import rehypeStringify from "rehype-stringify";
-import Layout from "../layouts/Layout.astro";
-import { skills } from "@/data/contents";
-import { profile } from "@/data/contents";
-import { careerSummary } from "@/data/contents";
-import { projects } from "@/data/contents";
 import ProfileSidebar from "@/components/ProfileSidebar.vue";
 import ProjectExperience from "@/components/ProjectExperience.vue";
 import SkillsSection from "@/components/SkillsSection.vue";
+import { careerSummary, profile, projects, skills } from "@/data/contents";
+import rehypeExternalLinks from "rehype-external-links";
+import rehypeStringify from "rehype-stringify";
+import { remark } from "remark";
+import remarkRehype from "remark-rehype";
+import Layout from "../layouts/Layout.astro";
 
 // Markdownをレンダリング
 const processMarkdown = async (text: string) => {
