@@ -1,46 +1,45 @@
-# Astro Starter Kit: Basics
+# Resume
 
-```sh
-pnpm create astro@latest -- --template basics
+Personal resume website built with Astro 5, Vue 3, and Tailwind CSS 4.
+
+**Live**: https://mola1129.dev
+
+## Setup
+
+```bash
+pnpm install
+pnpm dev  # localhost:4321
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```bash
+pnpm dev              # Development server
+pnpm build            # Build to ./dist/
+pnpm preview          # Preview build
+pnpm lint             # ESLint
+pnpm format           # Prettier
+pnpm test             # Visual regression tests
+pnpm test:update      # Update test snapshots
+pnpm test:report      # View test report
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Visual Regression Testing
 
-## 🧞 Commands
+Desktop/Tablet/Mobile × Light/Dark = 6 tests. Runs automatically on PRs.
 
-All commands are run from the root of the project, from a terminal:
+**First-time setup:**
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+```bash
+pnpm exec playwright install chromium --with-deps
+pnpm build
+pnpm test
+```
 
-## 👀 Want to learn more?
+## Stack
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Astro 5 + Vue 3
+- Tailwind CSS 4
+- shadcn-vue
+- Playwright (VRT)
+- GitHub Pages
