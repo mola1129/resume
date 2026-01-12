@@ -14,7 +14,8 @@
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "test:update": "playwright test --update-snapshots",
-    "test:report": "playwright show-report"
+    "test:report": "playwright show-report",
+    "postinstall": "lefthook install"
   },
   "dependencies": {
     "@astrojs/vue": "^5.1.3",
