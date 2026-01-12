@@ -32,7 +32,7 @@ Desktop/Tablet/Mobile × Light/Dark = 6 tests. Runs automatically on PRs.
 ```bash
 pnpm exec playwright install chromium --with-deps
 pnpm build
-pnpm test:update
+pnpm test
 ```
 
 **Troubleshooting:**
