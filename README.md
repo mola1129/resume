@@ -21,6 +21,7 @@ pnpm lint             # ESLint
 pnpm format           # Prettier
 pnpm test             # Visual regression tests
 pnpm test:update      # Update test snapshots
+pnpm test:report      # View test report
 ```
 
 ## Visual Regression Testing
@@ -34,12 +35,6 @@ pnpm exec playwright install chromium --with-deps
 pnpm build
 pnpm test
 ```
-
-**Troubleshooting:**
-
-- Test fails → `pnpm test:report` to check diff
-- Intentional change → `pnpm test:update`
-- Browser install fails → Use CI
 
 ## Stack
 
