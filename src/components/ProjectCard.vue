@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { Card } from "@/components/ui/card";
+import { TIMELINE_STYLES } from "@/constants";
 import type { ProjectWithHtml } from "@/types";
 import { calculateDuration } from "@/utils/date";
-import { TIMELINE_STYLES } from "@/constants";
-import { Card } from "@/components/ui/card";
+import { computed } from "vue";
 import ProjectTypeIcon from "./ProjectTypeIcon.vue";
 import SkillBadge from "./SkillBadge.vue";
 
@@ -22,7 +22,19 @@ const dotClass = computed(
 const lineClass = computed(
   () => `${TIMELINE_STYLES.LINE} ${!props.isLast ? "-mb-8" : ""}`,
 );
+
 const duration = computed(() => calculateDuration(props.project.period));
+
+// 期間を開始・終了に分割してISO 8601形式に変換
+const periodParts = props.project.period.split(/\s*-\s*/);
+const periodStartRaw = periodParts[0];
+const periodEndRaw = periodParts[1];
+const periodStart = computed(() => periodStartRaw.replace("/", "-"));
+const periodEnd = computed(() =>
+  !periodEndRaw || periodEndRaw === "現在"
+    ? undefined
+    : periodEndRaw.replace("/", "-"),
+);
 </script>
 
 <template>
@@ -37,7 +49,9 @@ const duration = computed(() => calculateDuration(props.project.period));
     <div
       class="mb-3 text-sm font-semibold text-slate-600 md:text-base dark:text-slate-400"
     >
-      <time>{{ project.period }}</time>
+      <time :datetime="periodStart">{{ periodStartRaw }}</time> -
+      <time v-if="periodEnd" :datetime="periodEnd">{{ periodEndRaw }}</time
+      ><span v-else>現在</span>
       <span class="ml-2 font-normal text-slate-500 dark:text-slate-500">
         {{ duration }}
       </span>
