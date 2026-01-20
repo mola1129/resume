@@ -26,15 +26,15 @@ const lineClass = computed(
 const duration = computed(() => calculateDuration(props.project.period));
 
 // 期間を開始・終了に分割してISO 8601形式に変換
-const periodParts = props.project.period.split(/\s*-\s*/);
-const periodStartRaw = periodParts[0];
-const periodEndRaw = periodParts[1];
-const periodStart = computed(() => periodStartRaw.replace("/", "-"));
-const periodEnd = computed(() =>
-  !periodEndRaw || periodEndRaw === "現在"
-    ? undefined
-    : periodEndRaw.replace("/", "-"),
-);
+const period = computed(() => {
+  const [startRaw, endRaw] = props.project.period.split(/\s*-\s*/);
+  return {
+    startRaw,
+    endRaw,
+    start: startRaw.replace("/", "-"),
+    end: endRaw && endRaw !== "現在" ? endRaw.replace("/", "-") : undefined,
+  };
+});
 </script>
 
 <template>
@@ -49,8 +49,8 @@ const periodEnd = computed(() =>
     <div
       class="mb-3 text-sm font-semibold text-slate-600 md:text-base dark:text-slate-400"
     >
-      <time :datetime="periodStart">{{ periodStartRaw }}</time> -
-      <time v-if="periodEnd" :datetime="periodEnd">{{ periodEndRaw }}</time
+      <time :datetime="period.start">{{ period.startRaw }}</time> -
+      <time v-if="period.end" :datetime="period.end">{{ period.endRaw }}</time
       ><span v-else>現在</span>
       <span class="ml-2 font-normal text-slate-500 dark:text-slate-500">
         {{ duration }}
@@ -59,7 +59,7 @@ const periodEnd = computed(() =>
 
     <!-- プロジェクトカード -->
     <Card
-      class="gap-0 rounded-lg border-slate-200 bg-slate-50 p-6 py-6 shadow-none dark:border-slate-800 dark:bg-slate-900"
+      class="gap-0 rounded-lg border-slate-200 bg-slate-50 p-6 shadow-none dark:border-slate-800 dark:bg-slate-900"
     >
       <!-- プロジェクト名とタイプアイコン -->
       <div class="mb-4 flex items-start gap-3">

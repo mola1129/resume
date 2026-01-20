@@ -2,6 +2,7 @@
 import type { Profile } from "@/types";
 import { ICON_SIZES } from "@/constants";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Mail } from "lucide-vue-next";
 
 interface Props {
   profile: Profile;
@@ -50,22 +51,11 @@ const iconClass = `${ICON_SIZES.CONTACT} shrink-0`;
           class="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-slate-900 md:text-base dark:text-slate-400 dark:hover:text-slate-100"
           :aria-label="`${contact.type} (新しいタブで開く)`"
         >
-          <svg
+          <Mail
             v-if="contact.icon === 'mail'"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
             :class="iconClass"
             aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
-            />
-          </svg>
+          />
           <img
             v-else-if="contact.icon"
             :src="`https://skillicons.dev/icons?i=${contact.icon}`"

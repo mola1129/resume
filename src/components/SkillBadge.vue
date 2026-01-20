@@ -20,27 +20,14 @@ const badgeClass =
 
 <template>
   <Badge
-    v-if="url"
-    as="a"
+    :as="url ? 'a' : 'span'"
     :href="url"
-    target="_blank"
-    rel="noopener noreferrer"
+    :target="url ? '_blank' : undefined"
+    :rel="url ? 'noopener noreferrer' : undefined"
     variant="outline"
     :class="badgeClass"
-    :aria-label="`${name} (新しいタブで開く)`"
+    :aria-label="url ? `${name} (新しいタブで開く)` : undefined"
   >
-    <img
-      :src="iconUrl"
-      :alt="name"
-      :class="iconClass"
-      loading="lazy"
-      aria-hidden="true"
-    />
-    <span class="font-medium text-slate-700 dark:text-slate-300">{{
-      name
-    }}</span>
-  </Badge>
-  <Badge v-else variant="outline" :class="badgeClass">
     <img
       :src="iconUrl"
       :alt="name"
