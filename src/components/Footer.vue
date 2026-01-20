@@ -23,8 +23,9 @@ const REPO_URL = "https://github.com/mola1129/resume";
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-1.5 text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+        aria-label="ソースコード (GitHubで新しいタブで開く)"
       >
-        <Github :class="ICON_SIZES.CONTACT" />
+        <Github :class="ICON_SIZES.CONTACT" aria-hidden="true" />
         <span>ソースコード</span>
       </a>
     </div>

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { Profile } from "@/types";
 import { ICON_SIZES } from "@/constants";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Mail } from "lucide-vue-next";
 
 interface Props {
   profile: Profile;
@@ -15,13 +17,9 @@ const iconClass = `${ICON_SIZES.CONTACT} shrink-0`;
   <div class="space-y-6">
     <!-- 写真 -->
     <div class="flex justify-center md:justify-start">
-      <img
-        :src="profileImageSrc"
-        :alt="profile.name"
-        class="h-40 w-40 rounded-full border-2 border-slate-300 object-cover dark:border-slate-700"
-        width="160"
-        height="160"
-      />
+      <Avatar class="h-40 w-40 border-2 border-slate-300 dark:border-slate-700">
+        <AvatarImage :src="profileImageSrc" :alt="profile.name" />
+      </Avatar>
     </div>
 
     <!-- 名前・役職 -->
@@ -37,7 +35,7 @@ const iconClass = `${ICON_SIZES.CONTACT} shrink-0`;
     </div>
 
     <!-- 連絡先 -->
-    <div>
+    <nav aria-label="連絡先">
       <h2
         class="mb-3 text-xs font-semibold tracking-wide text-slate-900 uppercase dark:text-slate-50"
       >
@@ -51,32 +49,24 @@ const iconClass = `${ICON_SIZES.CONTACT} shrink-0`;
           target="_blank"
           rel="noopener noreferrer"
           class="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-slate-900 md:text-base dark:text-slate-400 dark:hover:text-slate-100"
+          :aria-label="`${contact.type} (新しいタブで開く)`"
         >
-          <svg
+          <Mail
             v-if="contact.icon === 'mail'"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
             :class="iconClass"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
-            />
-          </svg>
+            aria-hidden="true"
+          />
           <img
             v-else-if="contact.icon"
             :src="`https://skillicons.dev/icons?i=${contact.icon}`"
             :alt="contact.type"
             :class="iconClass"
             loading="lazy"
+            aria-hidden="true"
           />
           <span class="break-all">{{ contact.type }}</span>
         </a>
       </div>
-    </div>
+    </nav>
   </div>
 </template>

@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { Card } from "@/components/ui/card";
+import { TIMELINE_STYLES } from "@/constants";
 import type { ProjectWithHtml } from "@/types";
 import { calculateDuration } from "@/utils/date";
-import { TIMELINE_STYLES } from "@/constants";
+import { computed } from "vue";
 import ProjectTypeIcon from "./ProjectTypeIcon.vue";
 import SkillBadge from "./SkillBadge.vue";
 
@@ -21,30 +22,44 @@ const dotClass = computed(
 const lineClass = computed(
   () => `${TIMELINE_STYLES.LINE} ${!props.isLast ? "-mb-8" : ""}`,
 );
+
 const duration = computed(() => calculateDuration(props.project.period));
+
+// 期間を開始・終了に分割してISO 8601形式に変換
+const period = computed(() => {
+  const [startRaw, endRaw] = props.project.period.split(/\s*-\s*/);
+  return {
+    startRaw,
+    endRaw,
+    start: startRaw.replace("/", "-"),
+    end: endRaw && endRaw !== "現在" ? endRaw.replace("/", "-") : undefined,
+  };
+});
 </script>
 
 <template>
-  <div class="relative pl-8">
+  <article class="relative pl-8">
     <!-- タイムライン縦線 -->
-    <div :class="lineClass" />
+    <div :class="lineClass" aria-hidden="true" />
 
     <!-- タイムラインドット -->
-    <div :class="dotClass" />
+    <div :class="dotClass" aria-hidden="true" />
 
     <!-- 期間表示 -->
     <div
       class="mb-3 text-sm font-semibold text-slate-600 md:text-base dark:text-slate-400"
     >
-      {{ project.period }}
+      <time :datetime="period.start">{{ period.startRaw }}</time> -
+      <time v-if="period.end" :datetime="period.end">{{ period.endRaw }}</time
+      ><span v-else>現在</span>
       <span class="ml-2 font-normal text-slate-500 dark:text-slate-500">
         {{ duration }}
       </span>
     </div>
 
     <!-- プロジェクトカード -->
-    <div
-      class="rounded-lg border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900"
+    <Card
+      class="gap-0 rounded-lg border-slate-200 bg-slate-50 p-6 shadow-none dark:border-slate-800 dark:bg-slate-900"
     >
       <!-- プロジェクト名とタイプアイコン -->
       <div class="mb-4 flex items-start gap-3">
@@ -87,7 +102,11 @@ const duration = computed(() => calculateDuration(props.project.period));
             :key="index"
             class="flex gap-2"
           >
-            <span class="shrink-0 text-slate-400 dark:text-slate-600">▸</span>
+            <span
+              class="shrink-0 text-slate-400 dark:text-slate-600"
+              aria-hidden="true"
+              >▸</span
+            >
             <span v-html="achievement" />
           </li>
         </ul>
@@ -108,6 +127,6 @@ const duration = computed(() => calculateDuration(props.project.period));
           />
         </div>
       </div>
-    </div>
-  </div>
+    </Card>
+  </article>
 </template>

@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-このファイルは、このリポジトリで作業する際にClaude Code (claude.ai/code) に対してガイダンスを提供します。
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## プロジェクト概要
 
@@ -24,6 +24,18 @@ pnpm preview
 # Astro CLIコマンドの実行
 pnpm astro check          # 型チェック
 pnpm astro add <package>  # インテグレーションの追加
+
+# コード品質
+pnpm lint                 # ESLintでコードチェック
+pnpm lint:fix             # ESLintで自動修正
+pnpm format               # Prettierでフォーマット
+pnpm format:check         # フォーマットのチェックのみ
+
+# Visual Regression Testing（ビルド済みが必要）
+pnpm test                 # テスト実行
+pnpm test:ui              # UIモードでテスト
+pnpm test:update          # スナップショット更新
+pnpm test:report          # テストレポート表示
 ```
 
 ## アーキテクチャ
@@ -93,13 +105,31 @@ src/
 - **デプロイ先**: GitHub Pages
 - **トリガー**: `main`ブランチへのpush時に自動実行
 - **アクション**: ビルドに公式の`withastro/action@v5`、デプロイに`actions/deploy-pages@v4`を使用
-- **Node version**: 22
+- **Node version**: 24
 
 デプロイメントを変更する際の注意点:
 
 - ベースパスは`/`（ルート）に設定（astro.config.mjsで設定）
 - サイトは`./dist/`ディレクトリにビルドされる
 - `dist/`ディレクトリはコミットしない（.gitignoreに記載）
+
+## Visual Regression Testing
+
+Playwrightを使用した視覚回帰テストを実施しています。Desktop/Tablet/Mobile × Light/Darkの6パターンをテストします。
+
+**初回セットアップ:**
+
+```bash
+pnpm exec playwright install chromium --with-deps
+pnpm build
+pnpm test
+```
+
+**テスト実行時の注意:**
+
+- テストはビルド済みのサイト（`pnpm preview`）に対して実行される
+- テスト前に必ず`pnpm build`を実行すること
+- CIではPRごとに自動実行される
 
 ## 開発ガイドライン
 
