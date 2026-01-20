@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Profile } from "@/types";
 import { ICON_SIZES } from "@/constants";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 interface Props {
   profile: Profile;
@@ -15,13 +16,9 @@ const iconClass = `${ICON_SIZES.CONTACT} shrink-0`;
   <div class="space-y-6">
     <!-- 写真 -->
     <div class="flex justify-center md:justify-start">
-      <img
-        :src="profileImageSrc"
-        :alt="profile.name"
-        class="h-40 w-40 rounded-full border-2 border-slate-300 object-cover dark:border-slate-700"
-        width="160"
-        height="160"
-      />
+      <Avatar class="h-40 w-40 border-2 border-slate-300 dark:border-slate-700">
+        <AvatarImage :src="profileImageSrc" :alt="profile.name" />
+      </Avatar>
     </div>
 
     <!-- 名前・役職 -->
