@@ -37,7 +37,7 @@ const iconClass = `${ICON_SIZES.CONTACT} shrink-0`;
     </div>
 
     <!-- 連絡先 -->
-    <div>
+    <nav aria-label="連絡先">
       <h2
         class="mb-3 text-xs font-semibold tracking-wide text-slate-900 uppercase dark:text-slate-50"
       >
@@ -51,6 +51,7 @@ const iconClass = `${ICON_SIZES.CONTACT} shrink-0`;
           target="_blank"
           rel="noopener noreferrer"
           class="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-slate-900 md:text-base dark:text-slate-400 dark:hover:text-slate-100"
+          :aria-label="`${contact.type} (新しいタブで開く)`"
         >
           <svg
             v-if="contact.icon === 'mail'"
@@ -60,6 +61,7 @@ const iconClass = `${ICON_SIZES.CONTACT} shrink-0`;
             stroke-width="1.5"
             stroke="currentColor"
             :class="iconClass"
+            aria-hidden="true"
           >
             <path
               stroke-linecap="round"
@@ -73,10 +75,11 @@ const iconClass = `${ICON_SIZES.CONTACT} shrink-0`;
             :alt="contact.type"
             :class="iconClass"
             loading="lazy"
+            aria-hidden="true"
           />
           <span class="break-all">{{ contact.type }}</span>
         </a>
       </div>
-    </div>
+    </nav>
   </div>
 </template>

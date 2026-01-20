@@ -50,7 +50,7 @@ const projectsWithHtml = await Promise.all(
         </aside>
 
         <!-- 右カラム: メインコンテンツ -->
-        <main class="space-y-10">
+        <div class="space-y-10">
           <!-- Career Summary -->
           <section>
             <h2
@@ -73,7 +73,7 @@ const projectsWithHtml = await Promise.all(
           <section>
             <SkillsSection client:load categories={skills} />
           </section>
-        </main>
+        </div>
       </div>
     </div>
   </main>
