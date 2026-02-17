@@ -1,6 +1,4 @@
-import type { Profile } from "@/types";
-import type { Project } from "@/types";
-import type { SkillCategory } from "@/types";
+import type { Profile, Project, SkillCategory } from "@/types";
 
 export const profile: Profile = {
   name: "mola1129",
@@ -29,44 +27,54 @@ export const careerSummary =
 
 export const projects: Project[] = [
   {
-    name: "サンプルプロジェクト1",
-    period: "2023/04 - 現在",
-    company: "株式会社サンプル",
+    name: "検索データを分析・可視化する社内ツールの開発",
+    period: "2024/04 - 現在",
+    company: "LINEヤフー株式会社",
+    role: "フロントエンド兼バックエンドエンジニア, スクラムマスター",
+    type: "web",
+    description: "<説明を書く>",
+    technologies: [
+      { name: "Vue.js", icon: "vue" },
+      { name: "Nuxt.js", icon: "nuxt" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "Node.js", icon: "nodejs" },
+      { name: "Nitro.js", icon: "nitrojs" },
+      { name: "MySQL", icon: "mysql" },
+      { name: "Docker", icon: "docker" },
+      { name: "Kubernetes", icon: "kubernetes" },
+    ],
+    achievements: [
+      "Vue.js (Nuxt.js) , SCSSによるフロントエンドの実装",
+      "Node.js (Nitro.js), Prisma, MySQL によるバックエンドの実装",
+      "OpenAI API (Server-Sent Events) を使った検索データのAI分析機能の実装",
+      "業務効率化のため, 開発フローに生成AIを導入",
+      "スクラムマスターとしてスクラムイベントの円滑な進行やチームメンバーの技術的課題の解決，機能開発のスケジュール管理を担当",
+    ],
+  },
+  {
+    name: "DS.INSIGHTの開発",
+    period: "2022/04 - 2024/03",
+    company: "LINEヤフー株式会社",
     role: "バックエンドエンジニア",
     type: "web",
-    description:
-      "大規模ECサイトのバックエンドAPI開発とインフラ構築を担当。[マイクロサービスアーキテクチャ](https://microservices.io/)を採用し、高可用性とスケーラビリティを実現。",
+    description: "<説明を書く>",
     technologies: [
       { name: "Java", icon: "java" },
       { name: "Spring Boot", icon: "spring" },
       { name: "MySQL", icon: "mysql" },
+      { name: "Redis", icon: "redis" },
+      { name: "Trino", icon: "trino" },
+      { name: "MQ", icon: "mq" },
       { name: "Docker", icon: "docker" },
       { name: "Kubernetes", icon: "kubernetes" },
-      { name: "Redis", icon: "redis" },
+      { name: "Node.js", icon: "nodejs" },
     ],
     achievements: [
-      "API応答速度を平均**30%改善**",
-      "月間**1000万PV**を処理する基盤を構築",
-      "[CI/CD](https://about.gitlab.com/topics/ci-cd/)パイプラインの構築によりデプロイ時間を**50%削減**",
-    ],
-  },
-  {
-    name: "サンプルプロジェクト2",
-    period: "2022/01 - 2023/03",
-    company: "株式会社サンプル",
-    role: "フロントエンドエンジニア",
-    type: "web",
-    description:
-      "社内管理画面のリニューアルプロジェクト。**Vue.js/Nuxt.js**を使用した[SPA](https://developer.mozilla.org/ja/docs/Glossary/SPA)の開発を担当。",
-    technologies: [
-      { name: "TypeScript", icon: "ts" },
-      { name: "Vue.js", icon: "vue" },
-      { name: "Nuxt.js", icon: "nuxtjs" },
-      { name: "Tailwind CSS", icon: "tailwind" },
-    ],
-    achievements: [
-      "レガシーシステムからモダンな**SPA**へ移行",
-      "ページ遷移速度を大幅に改善",
+      "Java (Spring Boot) によるREST APIの実装",
+      "Trino, MQ によるリアルタイム集計の実装",
+      "FaaS (Node.js), Java (Spring Boot) による定期メール配信の実装",
+      "Spring Boot 3, Java 17 への移行",
+      "アプリケーションの実行環境を新プラットフォームへ移行",
     ],
   },
 ];
@@ -102,7 +110,7 @@ export const skills: SkillCategory[] = [
         icon: "nodejs",
         url: "https://nodejs.org/docs/latest/api/",
       },
-      { name: "Nitro", icon: "nodejs", url: "https://nitro.unjs.io/" },
+      { name: "Nitro", icon: "nitro", url: "https://nitro.unjs.io/" },
       { name: "MySQL", icon: "mysql", url: "https://dev.mysql.com/doc/" },
       { name: "Docker", icon: "docker", url: "https://docs.docker.com/" },
       {
@@ -113,7 +121,7 @@ export const skills: SkillCategory[] = [
       { name: "Redis", icon: "redis", url: "https://redis.io/docs/latest/" },
       {
         name: "Trino",
-        icon: "postgres",
+        icon: "trino",
         url: "https://trino.io/docs/current/",
       },
     ],
