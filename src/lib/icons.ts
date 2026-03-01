@@ -35,11 +35,10 @@ import IconMail from "~icons/lucide/mail";
 // UnJS
 import IconNitro from "~icons/unjs/nitro";
 
+// Icon component registry
 export const iconMap = {
-  ts: IconTypescript,
   typescript: IconTypescript,
   vue: IconVuedotjs,
-  nuxtjs: IconNuxt,
   nuxt: IconNuxt,
   nextjs: IconNextdotjs,
   astro: IconAstro,
@@ -51,7 +50,6 @@ export const iconMap = {
   codex: IconOpenai,
   nodejs: IconNodedotjs,
   nitro: IconNitro,
-  nitrojs: IconNitro,
   mysql: IconMysql,
   docker: IconDocker,
   kubernetes: IconKubernetes,
@@ -60,7 +58,6 @@ export const iconMap = {
   redis: IconRedis,
   trino: IconTrino,
   mq: IconRabbitmq,
-  rabbitmq: IconRabbitmq,
   c: IconC,
   cpp: IconCplusplus,
   swift: IconSwift,
@@ -73,12 +70,10 @@ export const iconMap = {
 
 export type IconName = keyof typeof iconMap;
 
-// Simple Icons official brand colors
-export const iconColorMap: Partial<Record<IconName, string>> = {
-  ts: "#3178C6",
+// Brand colors
+export const brandColors: Partial<Record<IconName, string>> = {
   typescript: "#3178C6",
   vue: "#4FC08D",
-  nuxtjs: "#00DC82",
   nuxt: "#00DC82",
   nextjs: "#000000",
   astro: "#BC52EE",
