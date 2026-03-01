@@ -92,7 +92,6 @@ export const brandColors: Partial<Record<IconName, string>> = {
   redis: "#FF4438",
   trino: "#DD00A1",
   mq: "#FF6600",
-  rabbitmq: "#FF6600",
   c: "#A8B9CC",
   cpp: "#00599C",
   swift: "#F05138",
@@ -101,3 +100,49 @@ export const brandColors: Partial<Record<IconName, string>> = {
   github: "#181717",
   linkedin: "#0A66C2",
 };
+
+// Skill metadata (display name + documentation URL)
+export const skillMetaMap = {
+  typescript: {
+    name: "TypeScript",
+    docUrl: "https://www.typescriptlang.org",
+  },
+  vue: { name: "Vue.js", docUrl: "https://vuejs.org" },
+  nuxt: { name: "Nuxt.js", docUrl: "https://nuxt.com" },
+  nextjs: { name: "Next.js", docUrl: "https://nextjs.org" },
+  astro: { name: "Astro", docUrl: "https://astro.build" },
+  java: { name: "Java", docUrl: "https://www.java.com/" },
+  spring: {
+    name: "Spring Boot",
+    docUrl: "https://spring.io/projects/spring-boot",
+  },
+  gradle: { name: "Gradle", docUrl: "https://gradle.org" },
+  claudecode: {
+    name: "Claude Code",
+    docUrl: "https://docs.anthropic.com/en/docs/claude-code",
+  },
+  githubcopilot: {
+    name: "GitHub Copilot",
+    docUrl: "https://github.com/features/copilot",
+  },
+  codex: { name: "Codex", docUrl: "https://openai.com" },
+  nodejs: { name: "Node.js", docUrl: "https://nodejs.org" },
+  nitro: { name: "Nitro", docUrl: "https://nitro.unjs.io" },
+  mysql: { name: "MySQL", docUrl: "https://dev.mysql.com" },
+  docker: { name: "Docker", docUrl: "https://docs.docker.com" },
+  kubernetes: { name: "Kubernetes", docUrl: "https://kubernetes.io" },
+  scss: { name: "SCSS", docUrl: "https://sass-lang.com" },
+  prisma: { name: "Prisma", docUrl: "https://www.prisma.io" },
+  redis: { name: "Redis", docUrl: "https://redis.io" },
+  trino: { name: "Trino", docUrl: "https://trino.io" },
+  mq: { name: "MQ", docUrl: "https://www.rabbitmq.com" },
+  c: { name: "C", docUrl: "https://en.cppreference.com/w/c" },
+  cpp: { name: "C++", docUrl: "https://isocpp.org" },
+  swift: { name: "Swift", docUrl: "https://swift.org" },
+  react: { name: "React", docUrl: "https://react.dev" },
+  py: { name: "Python", docUrl: "https://docs.python.org" },
+} as const satisfies Partial<
+  Record<IconName, { name: string; docUrl: string }>
+>;
+
+export type SkillName = keyof typeof skillMetaMap;

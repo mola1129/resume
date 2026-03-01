@@ -1,36 +1,7 @@
-import type { IconName } from "@/lib/icons";
+import type { IconName, SkillName } from "@/lib/icons";
 
-// Skill types
-type EnsureSkillName<T extends IconName> = T;
-
-export type SkillName = EnsureSkillName<
-  | "typescript"
-  | "vue"
-  | "nuxt"
-  | "nextjs"
-  | "astro"
-  | "java"
-  | "spring"
-  | "gradle"
-  | "claudecode"
-  | "githubcopilot"
-  | "codex"
-  | "nodejs"
-  | "nitro"
-  | "mysql"
-  | "docker"
-  | "kubernetes"
-  | "scss"
-  | "prisma"
-  | "redis"
-  | "trino"
-  | "mq"
-  | "c"
-  | "cpp"
-  | "swift"
-  | "react"
-  | "py"
->;
+// SkillName is auto-derived from skillMetaMap keys in icons.ts
+export type { SkillName } from "@/lib/icons";
 
 export interface SkillCategory {
   category: string;
