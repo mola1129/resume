@@ -3,8 +3,8 @@ import type { Component } from "vue";
 // Simple Icons (brand/tech)
 import IconAstro from "~icons/simple-icons/astro";
 import IconC from "~icons/simple-icons/c";
-import IconCplusplus from "~icons/simple-icons/cplusplus";
 import IconClaude from "~icons/simple-icons/claude";
+import IconCplusplus from "~icons/simple-icons/cplusplus";
 import IconDocker from "~icons/simple-icons/docker";
 import IconGithub from "~icons/simple-icons/github";
 import IconGithubcopilot from "~icons/simple-icons/githubcopilot";
@@ -12,11 +12,11 @@ import IconGradle from "~icons/simple-icons/gradle";
 import IconKubernetes from "~icons/simple-icons/kubernetes";
 import IconLinkedin from "~icons/simple-icons/linkedin";
 import IconMysql from "~icons/simple-icons/mysql";
-import IconNodedotjs from "~icons/simple-icons/nodedotjs";
 import IconNextdotjs from "~icons/simple-icons/nextdotjs";
+import IconNodedotjs from "~icons/simple-icons/nodedotjs";
 import IconNuxt from "~icons/simple-icons/nuxt";
-import IconOpenjdk from "~icons/simple-icons/openjdk";
 import IconOpenai from "~icons/simple-icons/openai";
+import IconOpenjdk from "~icons/simple-icons/openjdk";
 import IconPrisma from "~icons/simple-icons/prisma";
 import IconPython from "~icons/simple-icons/python";
 import IconRabbitmq from "~icons/simple-icons/rabbitmq";
@@ -125,7 +125,7 @@ export const skillMetaMap = {
     name: "GitHub Copilot",
     docUrl: "https://github.com/features/copilot",
   },
-  codex: { name: "Codex", docUrl: "https://openai.com" },
+  codex: { name: "Codex", docUrl: "https://developers.openai.com/codex" },
   nodejs: { name: "Node.js", docUrl: "https://nodejs.org" },
   nitro: { name: "Nitro", docUrl: "https://nitro.unjs.io" },
   mysql: { name: "MySQL", docUrl: "https://dev.mysql.com" },
