@@ -100,6 +100,7 @@ export const skills: SkillCategory[] = [
       "kubernetes",
       "redis",
       "trino",
+      "mq",
     ],
   },
   {
