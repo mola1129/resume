@@ -1,7 +1,9 @@
+import type { IconName } from "@/lib/icons";
+
 // Skill types
 export interface Skill {
   name: string;
-  icon: string;
+  icon: IconName;
   url: string;
 }
 
@@ -14,7 +16,7 @@ export interface SkillCategory {
 export interface Contact {
   type: string;
   url?: string;
-  icon?: string;
+  icon?: IconName;
 }
 
 export interface Profile {
@@ -26,7 +28,7 @@ export interface Profile {
 // Project types
 export interface Technology {
   name: string;
-  icon: string;
+  icon: IconName;
 }
 
 export interface Project {

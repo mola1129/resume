@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import type { Profile } from "@/types";
-import { ICON_SIZES } from "@/constants";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Mail } from "lucide-vue-next";
+import Icon from "@/components/Icon.vue";
 
 interface Props {
   profile: Profile;
@@ -10,7 +9,6 @@ interface Props {
 }
 
 defineProps<Props>();
-const iconClass = `${ICON_SIZES.CONTACT} shrink-0`;
 </script>
 
 <template>
@@ -51,18 +49,10 @@ const iconClass = `${ICON_SIZES.CONTACT} shrink-0`;
           class="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-slate-900 md:text-base dark:text-slate-400 dark:hover:text-slate-100"
           :aria-label="`${contact.type} (新しいタブで開く)`"
         >
-          <Mail
-            v-if="contact.icon === 'mail'"
-            :class="iconClass"
-            aria-hidden="true"
-          />
-          <img
-            v-else-if="contact.icon"
-            :src="`https://skillicons.dev/icons?i=${contact.icon}`"
-            :alt="contact.type"
-            :class="iconClass"
-            loading="lazy"
-            aria-hidden="true"
+          <Icon
+            v-if="contact.icon"
+            :name="contact.icon"
+            size="md"
           />
           <span class="break-all">{{ contact.type }}</span>
         </a>

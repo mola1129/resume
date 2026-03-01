@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { Github } from "lucide-vue-next";
-import { ICON_SIZES } from "@/constants";
+import Icon from "@/components/Icon.vue";
 
 defineProps<{
   formattedDate: string;
@@ -25,7 +24,7 @@ const REPO_URL = "https://github.com/mola1129/resume";
         class="inline-flex items-center gap-1.5 text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
         aria-label="ソースコード (GitHubで新しいタブで開く)"
       >
-        <Github :class="ICON_SIZES.CONTACT" aria-hidden="true" />
+        <Icon name="github" size="md" />
         <span>ソースコード</span>
       </a>
     </div>

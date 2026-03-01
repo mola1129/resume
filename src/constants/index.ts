@@ -1,14 +1,3 @@
-// External URLs
-export const SKILLICONS_BASE_URL = "https://skillicons.dev/icons?i=";
-
-// Icon sizes
-export const ICON_SIZES = {
-  BADGE: "w-4 h-4",
-  PROJECT_TYPE: "w-6 h-6",
-  PROJECT_TYPE_CONTAINER: "w-14 h-14",
-  CONTACT: "w-5 h-5",
-} as const;
-
 // Badge styles
 export const BADGE_STYLES = {
   BASE: "inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors",

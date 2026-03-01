@@ -1,18 +1,15 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { Badge } from "@/components/ui/badge";
-import { SKILLICONS_BASE_URL, ICON_SIZES } from "@/constants";
+import Icon from "@/components/Icon.vue";
+import type { IconName } from "@/lib/icons";
 
 interface Props {
   name: string;
-  icon: string;
+  icon: IconName;
   url?: string;
 }
 
-const props = defineProps<Props>();
-
-const iconUrl = computed(() => `${SKILLICONS_BASE_URL}${props.icon}`);
-const iconClass = computed(() => `${ICON_SIZES.BADGE} object-contain shrink-0`);
+defineProps<Props>();
 
 const badgeClass =
   "rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-900 px-2.5 py-1 gap-1.5 h-auto text-sm md:text-base";
@@ -28,13 +25,7 @@ const badgeClass =
     :class="badgeClass"
     :aria-label="url ? `${name} (新しいタブで開く)` : undefined"
   >
-    <img
-      :src="iconUrl"
-      :alt="name"
-      :class="iconClass"
-      loading="lazy"
-      aria-hidden="true"
-    />
+    <Icon :name="icon" size="sm" />
     <span class="font-medium text-slate-700 dark:text-slate-300">{{
       name
     }}</span>
