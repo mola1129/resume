@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Card } from "@/components/ui/card";
-import { TIMELINE_STYLES } from "@/constants";
 import type { ProjectWithHtml } from "@/types";
 import { calculateDuration } from "@/utils/date";
 import { computed } from "vue";
@@ -16,10 +15,11 @@ const props = defineProps<Props>();
 const isOngoing = computed(() => props.project.period.includes("現在"));
 const dotClass = computed(
   () =>
-    `${TIMELINE_STYLES.DOT.BASE} ${isOngoing.value ? TIMELINE_STYLES.DOT.ONGOING : TIMELINE_STYLES.DOT.COMPLETED}`,
+    `absolute left-0 top-[8px] w-2.5 h-2.5 rounded-full ring-4 ring-white ${isOngoing.value ? "bg-blue-500" : "bg-slate-900"}`,
 );
 const lineClass = computed(
-  () => `${TIMELINE_STYLES.LINE} ${!props.isLast ? "-mb-8" : ""}`,
+  () =>
+    `absolute left-[5px] top-[8px] bottom-0 w-px bg-slate-300 ${!props.isLast ? "-mb-8" : ""}`,
 );
 
 const duration = computed(() => calculateDuration(props.project.period));
@@ -85,7 +85,7 @@ const period = computed(() => {
         >
           <li
             v-for="(achievement, index) in project.achievementsHtml"
-            :key="index"
+            :key="`${project.name}-achievement-${index}`"
             class="flex gap-2"
           >
             <span class="shrink-0 text-slate-400" aria-hidden="true">▸</span>
