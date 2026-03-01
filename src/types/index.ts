@@ -1,20 +1,18 @@
-// Skill types
-export interface Skill {
-  name: string;
-  icon: string;
-  url: string;
-}
+import type { IconName, SkillName } from "@/lib/icons";
+
+// SkillName is auto-derived from skillMetaMap keys in icons.ts
+export type { SkillName } from "@/lib/icons";
 
 export interface SkillCategory {
   category: string;
-  items: Skill[];
+  skills: SkillName[];
 }
 
 // Profile types
 export interface Contact {
   type: string;
   url?: string;
-  icon?: string;
+  icon?: IconName;
 }
 
 export interface Profile {
@@ -24,21 +22,13 @@ export interface Profile {
 }
 
 // Project types
-export interface Technology {
-  name: string;
-  icon: string;
-}
-
-export type ProjectType = "web" | "mobile" | "infrastructure" | "data";
-
 export interface Project {
   name: string;
   period: string;
   company?: string;
   role: string;
   description: string;
-  type: ProjectType;
-  technologies: Technology[];
+  skills: SkillName[];
   achievements?: string[];
 }
 

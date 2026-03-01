@@ -1,6 +1,4 @@
-import type { Profile } from "@/types";
-import type { Project } from "@/types";
-import type { SkillCategory } from "@/types";
+import type { Profile, Project, SkillCategory } from "@/types";
 
 export const profile: Profile = {
   name: "mola1129",
@@ -25,48 +23,61 @@ export const profile: Profile = {
 };
 
 export const careerSummary =
-  "フルスタックエンジニアとして、フロントエンドからバックエンド、インフラまで幅広い領域で開発経験があります。特に**TypeScript/Vue.js**と**Java/Spring Boot**を用いたWebアプリケーション開発を得意としています。[DS.INSIGHT](https://ds.yahoo.co.jp/service/insight/)の開発をしていました。";
+  "フロントエンドとバックエンドの両領域でWebアプリケーション開発の経験があります。特にTypeScript/Vue.js/Nuxt.jsとJava/Spring Bootを得意とし、LINEヤフーにて[DS.INSIGHT](https://ds.yahoo.co.jp/service/insight/)をはじめとするデータ分析ツールの開発に携わってきました。直近ではスクラムマスターとしてチーム開発を推進しながら、OpenAI APIやServer-Sent Eventsを活用したAI分析機能の開発や、開発フロー全体への生成AI導入にも取り組んでいます。";
 
 export const projects: Project[] = [
   {
-    name: "サンプルプロジェクト1",
-    period: "2023/04 - 現在",
-    company: "株式会社サンプル",
-    role: "バックエンドエンジニア",
-    type: "web",
+    name: "検索データを分析・可視化する社内ツールの開発",
+    period: "2023/11 - 現在",
+    company: "LINEヤフー株式会社",
+    role: "フロントエンド兼バックエンドエンジニア, スクラムマスター",
     description:
-      "大規模ECサイトのバックエンドAPI開発とインフラ構築を担当。[マイクロサービスアーキテクチャ](https://microservices.io/)を採用し、高可用性とスケーラビリティを実現。",
-    technologies: [
-      { name: "Java", icon: "java" },
-      { name: "Spring Boot", icon: "spring" },
-      { name: "MySQL", icon: "mysql" },
-      { name: "Docker", icon: "docker" },
-      { name: "Kubernetes", icon: "kubernetes" },
-      { name: "Redis", icon: "redis" },
+      "Yahoo! JAPANの検索データのトレンドや傾向を分析・可視化する社内向けツールの開発。",
+    skills: [
+      "typescript",
+      "vue",
+      "nuxt",
+      "scss",
+      "nodejs",
+      "nitro",
+      "prisma",
+      "mysql",
+      "docker",
+      "kubernetes",
     ],
     achievements: [
-      "API応答速度を平均**30%改善**",
-      "月間**1000万PV**を処理する基盤を構築",
-      "[CI/CD](https://about.gitlab.com/topics/ci-cd/)パイプラインの構築によりデプロイ時間を**50%削減**",
+      "Vue.js (Nuxt.js), SCSSによるフロントエンドの設計・実装",
+      "Node.js (Nitro.js), Prisma, MySQLによるバックエンドのAPI設計・実装",
+      "OpenAI APIとServer-Sent Eventsを活用したAI分析機能を開発し、検索データの分析業務を効率化",
+      "開発フローに生成AIを導入し、JIRAチケットからの実装計画作成、コード実装、コードレビュー、PR作成までをAIで効率化",
+      "スクラムマスターとしてスクラムイベントの円滑な進行やチームメンバーの技術的課題の解決, 機能開発のスケジュール管理を担当",
     ],
   },
   {
-    name: "サンプルプロジェクト2",
-    period: "2022/01 - 2023/03",
-    company: "株式会社サンプル",
-    role: "フロントエンドエンジニア",
-    type: "web",
+    name: "DS.INSIGHTの開発",
+    period: "2022/04 - 2023/10",
+    company: "ヤフー株式会社",
+    role: "バックエンドエンジニア",
     description:
-      "社内管理画面のリニューアルプロジェクト。**Vue.js/Nuxt.js**を使用した[SPA](https://developer.mozilla.org/ja/docs/Glossary/SPA)の開発を担当。",
-    technologies: [
-      { name: "TypeScript", icon: "ts" },
-      { name: "Vue.js", icon: "vue" },
-      { name: "Nuxt.js", icon: "nuxtjs" },
-      { name: "Tailwind CSS", icon: "tailwind" },
+      "Yahoo! JAPANの検索データや位置情報などのビッグデータを活用し、企業や自治体が消費者ニーズの調査・分析を行えるBtoB向けデスクリサーチツールの開発。",
+    skills: [
+      "java",
+      "spring",
+      "gradle",
+      "nodejs",
+      "mysql",
+      "redis",
+      "trino",
+      "mq",
+      "docker",
+      "kubernetes",
     ],
     achievements: [
-      "レガシーシステムからモダンな**SPA**へ移行",
-      "ページ遷移速度を大幅に改善",
+      "Java (Spring Boot) によるREST APIの新規開発および既存機能の改修",
+      "Trino, MQを用いた大規模検索データのリアルタイム集計基盤を構築",
+      "FaaS (Node.js), Java (Spring Boot) による定期メール配信の実装",
+      "EOL対応としてSpring Boot 3, Java 17へのマイグレーションを推進",
+      "EOL対応および運用コスト削減のため、アプリケーションの実行環境を新プラットフォームへ移行",
     ],
   },
 ];
@@ -74,58 +85,26 @@ export const projects: Project[] = [
 export const skills: SkillCategory[] = [
   {
     category: "得意",
-    items: [
-      {
-        name: "TypeScript",
-        icon: "ts",
-        url: "https://www.typescriptlang.org/docs/",
-      },
-      {
-        name: "Vue.js",
-        icon: "vue",
-        url: "https://vuejs.org/guide/introduction.html",
-      },
-      { name: "Nuxt.js", icon: "nuxtjs", url: "https://nuxt.com/docs" },
-      { name: "Java", icon: "java", url: "https://docs.oracle.com/en/java/" },
-      {
-        name: "Spring Boot",
-        icon: "spring",
-        url: "https://spring.io/projects/spring-boot",
-      },
-    ],
+    skills: ["typescript", "vue", "nuxt", "java", "spring"],
   },
   {
     category: "実務経験あり",
-    items: [
-      {
-        name: "Node.js",
-        icon: "nodejs",
-        url: "https://nodejs.org/docs/latest/api/",
-      },
-      { name: "Nitro", icon: "nodejs", url: "https://nitro.unjs.io/" },
-      { name: "MySQL", icon: "mysql", url: "https://dev.mysql.com/doc/" },
-      { name: "Docker", icon: "docker", url: "https://docs.docker.com/" },
-      {
-        name: "Kubernetes",
-        icon: "kubernetes",
-        url: "https://kubernetes.io/docs/home/",
-      },
-      { name: "Redis", icon: "redis", url: "https://redis.io/docs/latest/" },
-      {
-        name: "Trino",
-        icon: "postgres",
-        url: "https://trino.io/docs/current/",
-      },
+    skills: [
+      "gradle",
+      "nodejs",
+      "nitro",
+      "scss",
+      "prisma",
+      "mysql",
+      "docker",
+      "kubernetes",
+      "redis",
+      "trino",
+      "mq",
     ],
   },
   {
     category: "基礎知識",
-    items: [
-      { name: "C", icon: "c", url: "https://en.cppreference.com/w/c" },
-      { name: "C++", icon: "cpp", url: "https://en.cppreference.com/w/" },
-      { name: "Swift", icon: "swift", url: "https://swift.org/documentation/" },
-      { name: "React", icon: "react", url: "https://react.dev/" },
-      { name: "Python", icon: "py", url: "https://docs.python.org/3/" },
-    ],
+    skills: ["c", "cpp", "py", "swift", "react", "nextjs", "astro"],
   },
 ];

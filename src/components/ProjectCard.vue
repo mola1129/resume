@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { Card } from "@/components/ui/card";
-import { TIMELINE_STYLES } from "@/constants";
 import type { ProjectWithHtml } from "@/types";
 import { calculateDuration } from "@/utils/date";
 import { computed } from "vue";
-import ProjectTypeIcon from "./ProjectTypeIcon.vue";
 import SkillBadge from "./SkillBadge.vue";
 
 interface Props {
@@ -17,10 +15,11 @@ const props = defineProps<Props>();
 const isOngoing = computed(() => props.project.period.includes("現在"));
 const dotClass = computed(
   () =>
-    `${TIMELINE_STYLES.DOT.BASE} ${isOngoing.value ? TIMELINE_STYLES.DOT.ONGOING : TIMELINE_STYLES.DOT.COMPLETED}`,
+    `absolute left-0 top-[8px] w-2.5 h-2.5 rounded-full ring-4 ring-white ${isOngoing.value ? "bg-blue-500" : "bg-slate-900"}`,
 );
 const lineClass = computed(
-  () => `${TIMELINE_STYLES.LINE} ${!props.isLast ? "-mb-8" : ""}`,
+  () =>
+    `absolute left-[5px] top-[8px] bottom-0 w-px bg-slate-300 ${!props.isLast ? "-mb-8" : ""}`,
 );
 
 const duration = computed(() => calculateDuration(props.project.period));
@@ -46,42 +45,29 @@ const period = computed(() => {
     <div :class="dotClass" aria-hidden="true" />
 
     <!-- 期間表示 -->
-    <div
-      class="mb-3 text-sm font-semibold text-slate-600 md:text-base dark:text-slate-400"
-    >
+    <div class="mb-3 text-sm font-semibold text-slate-600 md:text-base">
       <time :datetime="period.start">{{ period.startRaw }}</time> -
       <time v-if="period.end" :datetime="period.end">{{ period.endRaw }}</time
       ><span v-else>現在</span>
-      <span class="ml-2 font-normal text-slate-500 dark:text-slate-500">
+      <span class="ml-2 font-normal text-slate-500">
         {{ duration }}
       </span>
     </div>
 
     <!-- プロジェクトカード -->
-    <Card
-      class="gap-0 rounded-lg border-slate-200 bg-slate-50 p-6 shadow-none dark:border-slate-800 dark:bg-slate-900"
-    >
-      <!-- プロジェクト名とタイプアイコン -->
-      <div class="mb-4 flex items-start gap-3">
-        <ProjectTypeIcon :type="project.type" />
-
-        <div class="flex-1">
-          <h3
-            class="mb-1 text-lg font-bold text-slate-900 md:text-xl dark:text-slate-50"
-          >
-            {{ project.name }}
-          </h3>
-          <p
-            v-if="project.company"
-            class="text-sm text-slate-600 md:text-base dark:text-slate-400"
-          >
-            {{ project.company }} / {{ project.role }}
-          </p>
-        </div>
+    <Card class="gap-0 rounded-lg border-slate-200 bg-slate-50 p-6 shadow-none">
+      <!-- プロジェクト名 -->
+      <div class="mb-4">
+        <h3 class="mb-1 text-lg font-bold text-slate-900 md:text-xl">
+          {{ project.name }}
+        </h3>
+        <p v-if="project.company" class="text-sm text-slate-600 md:text-base">
+          {{ project.company }} / {{ project.role }}
+        </p>
       </div>
 
       <div
-        class="project-content mb-5 text-base leading-relaxed text-slate-700 dark:text-slate-300"
+        class="project-content mb-5 text-base leading-relaxed text-slate-700"
         v-html="project.descriptionHtml"
       />
 
@@ -90,23 +76,19 @@ const period = computed(() => {
         class="mb-5"
       >
         <h4
-          class="mb-2 text-sm font-semibold tracking-wide text-slate-600 uppercase md:text-base dark:text-slate-400"
+          class="mb-2 text-sm font-semibold tracking-wide text-slate-600 uppercase md:text-base"
         >
           成果・実績
         </h4>
         <ul
-          class="project-content space-y-1.5 text-sm text-slate-700 md:text-base dark:text-slate-300"
+          class="project-content space-y-1.5 text-sm text-slate-700 md:text-base"
         >
           <li
             v-for="(achievement, index) in project.achievementsHtml"
-            :key="index"
+            :key="`${project.name}-achievement-${index}`"
             class="flex gap-2"
           >
-            <span
-              class="shrink-0 text-slate-400 dark:text-slate-600"
-              aria-hidden="true"
-              >▸</span
-            >
+            <span class="shrink-0 text-slate-400" aria-hidden="true">▸</span>
             <span v-html="achievement" />
           </li>
         </ul>
@@ -114,16 +96,15 @@ const period = computed(() => {
 
       <div>
         <h4
-          class="mb-2 text-sm font-semibold tracking-wide text-slate-600 uppercase md:text-base dark:text-slate-400"
+          class="mb-2 text-sm font-semibold tracking-wide text-slate-600 uppercase md:text-base"
         >
           使用技術
         </h4>
         <div class="flex flex-wrap gap-2">
           <SkillBadge
-            v-for="tech in project.technologies"
-            :key="tech.name"
-            :name="tech.name"
-            :icon="tech.icon"
+            v-for="(skill, index) in project.skills"
+            :key="`${project.name}-${skill}-${index}`"
+            :icon="skill"
           />
         </div>
       </div>

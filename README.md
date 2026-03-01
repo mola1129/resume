@@ -26,7 +26,7 @@ pnpm test:report      # View test report
 
 ## Visual Regression Testing
 
-Desktop/Tablet/Mobile × Light/Dark = 6 tests. Runs automatically on PRs.
+Desktop/Tablet/Mobile = 3 tests. Runs automatically on PRs.
 
 **First-time setup:**
 

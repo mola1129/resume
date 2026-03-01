@@ -1,21 +1,22 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import Icon from "@/components/Icon.vue";
 import { Badge } from "@/components/ui/badge";
-import { SKILLICONS_BASE_URL, ICON_SIZES } from "@/constants";
+import { skillMetaMap } from "@/lib/icons";
+import type { SkillName } from "@/types";
+import { computed } from "vue";
 
 interface Props {
-  name: string;
-  icon: string;
-  url?: string;
+  icon: SkillName;
 }
 
 const props = defineProps<Props>();
 
-const iconUrl = computed(() => `${SKILLICONS_BASE_URL}${props.icon}`);
-const iconClass = computed(() => `${ICON_SIZES.BADGE} object-contain shrink-0`);
+const name = computed(() => skillMetaMap[props.icon].name);
+
+const url = computed(() => skillMetaMap[props.icon].docUrl);
 
 const badgeClass =
-  "rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-900 px-2.5 py-1 gap-1.5 h-auto text-sm md:text-base";
+  "inline-flex items-center rounded border border-slate-300 bg-white hover:bg-slate-50 px-2.5 py-1 gap-1.5 h-auto text-sm md:text-base";
 </script>
 
 <template>
@@ -28,15 +29,7 @@ const badgeClass =
     :class="badgeClass"
     :aria-label="url ? `${name} (新しいタブで開く)` : undefined"
   >
-    <img
-      :src="iconUrl"
-      :alt="name"
-      :class="iconClass"
-      loading="lazy"
-      aria-hidden="true"
-    />
-    <span class="font-medium text-slate-700 dark:text-slate-300">{{
-      name
-    }}</span>
+    <Icon :name="props.icon" class="self-center" />
+    <span class="font-medium text-slate-700">{{ name }}</span>
   </Badge>
 </template>
