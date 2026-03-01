@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Profile } from "@/types";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import Icon from "@/components/Icon.vue";
 
 interface Props {
@@ -15,19 +14,19 @@ defineProps<Props>();
   <div class="space-y-6">
     <!-- 写真 -->
     <div class="flex justify-center md:justify-start">
-      <Avatar class="h-40 w-40 border-2 border-slate-300 dark:border-slate-700">
-        <AvatarImage :src="profileImageSrc" :alt="profile.name" />
-      </Avatar>
+      <img
+        :src="profileImageSrc"
+        :alt="profile.name"
+        class="h-40 w-40 rounded-full border-2 border-slate-300 object-cover"
+      />
     </div>
 
     <!-- 名前・役職 -->
     <div class="text-center md:text-left">
-      <h1
-        class="mb-2 text-2xl font-bold text-slate-900 md:text-3xl dark:text-slate-50"
-      >
+      <h1 class="mb-2 text-2xl font-bold text-slate-900 md:text-3xl">
         {{ profile.name }}
       </h1>
-      <p class="text-base text-slate-700 md:text-lg dark:text-slate-300">
+      <p class="text-base text-slate-700 md:text-lg">
         {{ profile.description }}
       </p>
     </div>
@@ -35,7 +34,7 @@ defineProps<Props>();
     <!-- 連絡先 -->
     <nav aria-label="連絡先">
       <h2
-        class="mb-3 text-xs font-semibold tracking-wide text-slate-900 uppercase dark:text-slate-50"
+        class="mb-3 text-xs font-semibold tracking-wide text-slate-900 uppercase"
       >
         Contact
       </h2>
@@ -46,7 +45,7 @@ defineProps<Props>();
           :href="contact.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-slate-900 md:text-base dark:text-slate-400 dark:hover:text-slate-100"
+          class="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-slate-900 md:text-base"
           :aria-label="`${contact.type} (新しいタブで開く)`"
         >
           <Icon v-if="contact.icon" :name="contact.icon" />
