@@ -33,15 +33,17 @@ export const projects: Project[] = [
     role: "フロントエンド兼バックエンドエンジニア, スクラムマスター",
     description:
       "Yahoo! JAPANの検索データのトレンドや傾向を分析・可視化する社内向けツールの開発。",
-    technologies: [
-      { name: "Vue.js", icon: "vue" },
-      { name: "Nuxt.js", icon: "nuxt" },
-      { name: "TypeScript", icon: "typescript" },
-      { name: "Node.js", icon: "nodejs" },
-      { name: "Nitro.js", icon: "nitrojs" },
-      { name: "MySQL", icon: "mysql" },
-      { name: "Docker", icon: "docker" },
-      { name: "Kubernetes", icon: "kubernetes" },
+    skills: [
+      "typescript",
+      "vue",
+      "nuxt",
+      "scss",
+      "nodejs",
+      "nitro",
+      "prisma",
+      "mysql",
+      "docker",
+      "kubernetes",
     ],
     achievements: [
       "Vue.js (Nuxt.js), SCSSによるフロントエンドの設計・実装",
@@ -58,16 +60,17 @@ export const projects: Project[] = [
     role: "バックエンドエンジニア",
     description:
       "Yahoo! JAPANの検索データや位置情報などのビッグデータを活用し、企業や自治体が消費者ニーズの調査・分析を行えるBtoB向けデスクリサーチツールの開発。",
-    technologies: [
-      { name: "Java", icon: "java" },
-      { name: "Spring Boot", icon: "spring" },
-      { name: "MySQL", icon: "mysql" },
-      { name: "Redis", icon: "redis" },
-      { name: "Trino", icon: "trino" },
-      { name: "MQ", icon: "mq" },
-      { name: "Docker", icon: "docker" },
-      { name: "Kubernetes", icon: "kubernetes" },
-      { name: "Node.js", icon: "nodejs" },
+    skills: [
+      "java",
+      "spring",
+      "gradle",
+      "nodejs",
+      "mysql",
+      "redis",
+      "trino",
+      "mq",
+      "docker",
+      "kubernetes",
     ],
     achievements: [
       "Java (Spring Boot) によるREST APIの新規開発および既存機能の改修",
@@ -82,64 +85,25 @@ export const projects: Project[] = [
 export const skills: SkillCategory[] = [
   {
     category: "得意",
-    items: [
-      {
-        name: "TypeScript",
-        icon: "ts",
-        url: "https://www.typescriptlang.org/docs/",
-      },
-      {
-        name: "Vue.js",
-        icon: "vue",
-        url: "https://vuejs.org/guide/introduction.html",
-      },
-      { name: "Nuxt.js", icon: "nuxtjs", url: "https://nuxt.com/docs" },
-      { name: "Java", icon: "java", url: "https://docs.oracle.com/en/java/" },
-      {
-        name: "Spring Boot",
-        icon: "spring",
-        url: "https://spring.io/projects/spring-boot",
-      },
-    ],
+    skills: ["typescript", "vue", "nuxt", "java", "spring"],
   },
   {
     category: "実務経験あり",
-    items: [
-      {
-        name: "Node.js",
-        icon: "nodejs",
-        url: "https://nodejs.org/docs/latest/api/",
-      },
-      { name: "Nitro", icon: "nitro", url: "https://nitro.unjs.io/" },
-      { name: "MySQL", icon: "mysql", url: "https://dev.mysql.com/doc/" },
-      { name: "Docker", icon: "docker", url: "https://docs.docker.com/" },
-      {
-        name: "Kubernetes",
-        icon: "kubernetes",
-        url: "https://kubernetes.io/docs/home/",
-      },
-      {
-        name: "SCSS",
-        icon: "scss",
-        url: "https://sass-lang.com/documentation/",
-      },
-      { name: "Prisma", icon: "prisma", url: "https://www.prisma.io/docs" },
-      { name: "Redis", icon: "redis", url: "https://redis.io/docs/latest/" },
-      {
-        name: "Trino",
-        icon: "trino",
-        url: "https://trino.io/docs/current/",
-      },
+    skills: [
+      "gradle",
+      "nodejs",
+      "nitro",
+      "scss",
+      "prisma",
+      "mysql",
+      "docker",
+      "kubernetes",
+      "redis",
+      "trino",
     ],
   },
   {
     category: "基礎知識",
-    items: [
-      { name: "C", icon: "c", url: "https://en.cppreference.com/w/c" },
-      { name: "C++", icon: "cpp", url: "https://en.cppreference.com/w/" },
-      { name: "Swift", icon: "swift", url: "https://swift.org/documentation/" },
-      { name: "React", icon: "react", url: "https://react.dev/" },
-      { name: "Python", icon: "py", url: "https://docs.python.org/3/" },
-    ],
+    skills: ["c", "cpp", "py", "swift", "react", "nextjs", "astro"],
   },
 ];

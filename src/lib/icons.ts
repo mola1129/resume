@@ -1,16 +1,22 @@
 import type { Component } from "vue";
 
 // Simple Icons (brand/tech)
+import IconAstro from "~icons/simple-icons/astro";
 import IconC from "~icons/simple-icons/c";
 import IconCplusplus from "~icons/simple-icons/cplusplus";
+import IconClaude from "~icons/simple-icons/claude";
 import IconDocker from "~icons/simple-icons/docker";
 import IconGithub from "~icons/simple-icons/github";
+import IconGithubcopilot from "~icons/simple-icons/githubcopilot";
+import IconGradle from "~icons/simple-icons/gradle";
 import IconKubernetes from "~icons/simple-icons/kubernetes";
 import IconLinkedin from "~icons/simple-icons/linkedin";
 import IconMysql from "~icons/simple-icons/mysql";
 import IconNodedotjs from "~icons/simple-icons/nodedotjs";
+import IconNextdotjs from "~icons/simple-icons/nextdotjs";
 import IconNuxt from "~icons/simple-icons/nuxt";
 import IconOpenjdk from "~icons/simple-icons/openjdk";
+import IconOpenai from "~icons/simple-icons/openai";
 import IconPrisma from "~icons/simple-icons/prisma";
 import IconPython from "~icons/simple-icons/python";
 import IconRabbitmq from "~icons/simple-icons/rabbitmq";
@@ -35,8 +41,14 @@ export const iconMap = {
   vue: IconVuedotjs,
   nuxtjs: IconNuxt,
   nuxt: IconNuxt,
+  nextjs: IconNextdotjs,
+  astro: IconAstro,
   java: IconOpenjdk,
   spring: IconSpring,
+  gradle: IconGradle,
+  claudecode: IconClaude,
+  githubcopilot: IconGithubcopilot,
+  codex: IconOpenai,
   nodejs: IconNodedotjs,
   nitro: IconNitro,
   nitrojs: IconNitro,
@@ -68,8 +80,14 @@ export const iconColorMap: Partial<Record<IconName, string>> = {
   vue: "#4FC08D",
   nuxtjs: "#00DC82",
   nuxt: "#00DC82",
+  nextjs: "#000000",
+  astro: "#BC52EE",
   java: "#000000",
   spring: "#6DB33F",
+  gradle: "#02303A",
+  claudecode: "#D97757",
+  githubcopilot: "#000000",
+  codex: "#000000",
   nodejs: "#5FA04E",
   mysql: "#4479A1",
   docker: "#2496ED",

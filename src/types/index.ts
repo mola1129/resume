@@ -1,15 +1,40 @@
 import type { IconName } from "@/lib/icons";
 
 // Skill types
-export interface Skill {
-  name: string;
-  icon: IconName;
-  url: string;
-}
+type EnsureSkillName<T extends IconName> = T;
+
+export type SkillName = EnsureSkillName<
+  | "typescript"
+  | "vue"
+  | "nuxt"
+  | "nextjs"
+  | "astro"
+  | "java"
+  | "spring"
+  | "gradle"
+  | "claudecode"
+  | "githubcopilot"
+  | "codex"
+  | "nodejs"
+  | "nitro"
+  | "mysql"
+  | "docker"
+  | "kubernetes"
+  | "scss"
+  | "prisma"
+  | "redis"
+  | "trino"
+  | "mq"
+  | "c"
+  | "cpp"
+  | "swift"
+  | "react"
+  | "py"
+>;
 
 export interface SkillCategory {
   category: string;
-  items: Skill[];
+  skills: SkillName[];
 }
 
 // Profile types
@@ -26,18 +51,13 @@ export interface Profile {
 }
 
 // Project types
-export interface Technology {
-  name: string;
-  icon: IconName;
-}
-
 export interface Project {
   name: string;
   period: string;
   company?: string;
   role: string;
   description: string;
-  technologies: Technology[];
+  skills: SkillName[];
   achievements?: string[];
 }
 

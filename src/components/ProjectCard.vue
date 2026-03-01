@@ -115,10 +115,9 @@ const period = computed(() => {
         </h4>
         <div class="flex flex-wrap gap-2">
           <SkillBadge
-            v-for="tech in project.technologies"
-            :key="tech.name"
-            :name="tech.name"
-            :icon="tech.icon"
+            v-for="(skill, index) in project.skills"
+            :key="`${project.name}-${skill}-${index}`"
+            :icon="skill"
           />
         </div>
       </div>

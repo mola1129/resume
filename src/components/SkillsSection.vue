@@ -26,11 +26,9 @@ defineProps<Props>();
       </div>
       <div class="flex flex-wrap gap-2">
         <SkillBadge
-          v-for="skill in category.items"
-          :key="skill.name"
-          :name="skill.name"
-          :icon="skill.icon"
-          :url="skill.url"
+          v-for="skill in category.skills"
+          :key="skill"
+          :icon="skill"
         />
       </div>
     </div>
