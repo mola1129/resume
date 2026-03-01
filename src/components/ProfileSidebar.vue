@@ -49,11 +49,7 @@ defineProps<Props>();
           class="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-slate-900 md:text-base dark:text-slate-400 dark:hover:text-slate-100"
           :aria-label="`${contact.type} (新しいタブで開く)`"
         >
-          <Icon
-            v-if="contact.icon"
-            :name="contact.icon"
-            size="md"
-          />
+          <Icon v-if="contact.icon" :name="contact.icon" />
           <span class="break-all">{{ contact.type }}</span>
         </a>
       </div>
