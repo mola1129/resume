@@ -62,7 +62,7 @@ const name = computed(() => iconMetaMap[props.icon].name);
 const url = computed(() => iconMetaMap[props.icon].docUrl);
 
 const badgeClass =
-  "inline-flex items-center rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-900 px-2.5 py-1 gap-1.5 h-auto text-sm md:text-base";
+  "inline-flex items-center rounded border border-slate-300 bg-white hover:bg-slate-50 px-2.5 py-1 gap-1.5 h-auto text-sm md:text-base";
 </script>
 
 <template>
@@ -76,8 +76,6 @@ const badgeClass =
     :aria-label="url ? `${name} (新しいタブで開く)` : undefined"
   >
     <Icon :name="props.icon" class="self-center" />
-    <span class="font-medium text-slate-700 dark:text-slate-300">{{
-      name
-    }}</span>
+    <span class="font-medium text-slate-700">{{ name }}</span>
   </Badge>
 </template>

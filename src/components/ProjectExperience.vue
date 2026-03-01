@@ -11,7 +11,7 @@ defineProps<Props>();
 
 <template>
   <h2
-    class="mb-4 border-b-2 border-slate-900 pb-2 text-xl font-bold text-slate-900 md:text-2xl dark:border-slate-100 dark:text-slate-50"
+    class="mb-4 border-b-2 border-slate-900 pb-2 text-xl font-bold text-slate-900 md:text-2xl"
   >
     プロジェクト経験
   </h2>

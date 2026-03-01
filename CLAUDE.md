@@ -89,7 +89,6 @@ src/
 
 - Tailwind CSS 4をViteプラグイン経由で使用（PostCSSではない）
 - [src/styles/global.css](src/styles/global.css)で`@theme inline`を使用したカスタムテーマ
-- `.dark`クラスバリアントでダークモードを実装
 - テーマ用にCSS custom properties を使用（例: `--color-background`）
 
 ### データレイヤー
@@ -115,7 +114,7 @@ src/
 
 ## Visual Regression Testing
 
-Playwrightを使用した視覚回帰テストを実施しています。Desktop/Tablet/Mobile × Light/Darkの6パターンをテストします。
+Playwrightを使用した視覚回帰テストを実施しています。Desktop/Tablet/Mobileの3パターンをテストします。
 
 **初回セットアップ:**
 
@@ -152,6 +151,5 @@ import { skills } from "@/data/skills";
 このプロジェクトはViteプラグインでTailwind CSS 4を使用しています。v3との主な違い:
 
 - 設定は`tailwind.config.js`ではなく、CSSで`@theme`ディレクティブを使用
-- ダークモードはglobal.cssで`@custom-variant dark`を使用
 - PostCSS設定は不要
 - グラデーション背景は`bg-linear-to-*`を使用（v3の`bg-gradient-to-*`ではない）

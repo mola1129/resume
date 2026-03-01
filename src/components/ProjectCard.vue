@@ -45,38 +45,29 @@ const period = computed(() => {
     <div :class="dotClass" aria-hidden="true" />
 
     <!-- 期間表示 -->
-    <div
-      class="mb-3 text-sm font-semibold text-slate-600 md:text-base dark:text-slate-400"
-    >
+    <div class="mb-3 text-sm font-semibold text-slate-600 md:text-base">
       <time :datetime="period.start">{{ period.startRaw }}</time> -
       <time v-if="period.end" :datetime="period.end">{{ period.endRaw }}</time
       ><span v-else>現在</span>
-      <span class="ml-2 font-normal text-slate-500 dark:text-slate-500">
+      <span class="ml-2 font-normal text-slate-500">
         {{ duration }}
       </span>
     </div>
 
     <!-- プロジェクトカード -->
-    <Card
-      class="gap-0 rounded-lg border-slate-200 bg-slate-50 p-6 shadow-none dark:border-slate-800 dark:bg-slate-900"
-    >
+    <Card class="gap-0 rounded-lg border-slate-200 bg-slate-50 p-6 shadow-none">
       <!-- プロジェクト名 -->
       <div class="mb-4">
-        <h3
-          class="mb-1 text-lg font-bold text-slate-900 md:text-xl dark:text-slate-50"
-        >
+        <h3 class="mb-1 text-lg font-bold text-slate-900 md:text-xl">
           {{ project.name }}
         </h3>
-        <p
-          v-if="project.company"
-          class="text-sm text-slate-600 md:text-base dark:text-slate-400"
-        >
+        <p v-if="project.company" class="text-sm text-slate-600 md:text-base">
           {{ project.company }} / {{ project.role }}
         </p>
       </div>
 
       <div
-        class="project-content mb-5 text-base leading-relaxed text-slate-700 dark:text-slate-300"
+        class="project-content mb-5 text-base leading-relaxed text-slate-700"
         v-html="project.descriptionHtml"
       />
 
@@ -85,23 +76,19 @@ const period = computed(() => {
         class="mb-5"
       >
         <h4
-          class="mb-2 text-sm font-semibold tracking-wide text-slate-600 uppercase md:text-base dark:text-slate-400"
+          class="mb-2 text-sm font-semibold tracking-wide text-slate-600 uppercase md:text-base"
         >
           成果・実績
         </h4>
         <ul
-          class="project-content space-y-1.5 text-sm text-slate-700 md:text-base dark:text-slate-300"
+          class="project-content space-y-1.5 text-sm text-slate-700 md:text-base"
         >
           <li
             v-for="(achievement, index) in project.achievementsHtml"
             :key="index"
             class="flex gap-2"
           >
-            <span
-              class="shrink-0 text-slate-400 dark:text-slate-600"
-              aria-hidden="true"
-              >▸</span
-            >
+            <span class="shrink-0 text-slate-400" aria-hidden="true">▸</span>
             <span v-html="achievement" />
           </li>
         </ul>
@@ -109,7 +96,7 @@ const period = computed(() => {
 
       <div>
         <h4
-          class="mb-2 text-sm font-semibold tracking-wide text-slate-600 uppercase md:text-base dark:text-slate-400"
+          class="mb-2 text-sm font-semibold tracking-wide text-slate-600 uppercase md:text-base"
         >
           使用技術
         </h4>
