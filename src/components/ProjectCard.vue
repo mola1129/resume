@@ -4,7 +4,6 @@ import { TIMELINE_STYLES } from "@/constants";
 import type { ProjectWithHtml } from "@/types";
 import { calculateDuration } from "@/utils/date";
 import { computed } from "vue";
-import ProjectTypeIcon from "./ProjectTypeIcon.vue";
 import SkillBadge from "./SkillBadge.vue";
 
 interface Props {
@@ -61,23 +60,19 @@ const period = computed(() => {
     <Card
       class="gap-0 rounded-lg border-slate-200 bg-slate-50 p-6 shadow-none dark:border-slate-800 dark:bg-slate-900"
     >
-      <!-- プロジェクト名とタイプアイコン -->
-      <div class="mb-4 flex items-start gap-3">
-        <ProjectTypeIcon :type="project.type" />
-
-        <div class="flex-1">
-          <h3
-            class="mb-1 text-lg font-bold text-slate-900 md:text-xl dark:text-slate-50"
-          >
-            {{ project.name }}
-          </h3>
-          <p
-            v-if="project.company"
-            class="text-sm text-slate-600 md:text-base dark:text-slate-400"
-          >
-            {{ project.company }} / {{ project.role }}
-          </p>
-        </div>
+      <!-- プロジェクト名 -->
+      <div class="mb-4">
+        <h3
+          class="mb-1 text-lg font-bold text-slate-900 md:text-xl dark:text-slate-50"
+        >
+          {{ project.name }}
+        </h3>
+        <p
+          v-if="project.company"
+          class="text-sm text-slate-600 md:text-base dark:text-slate-400"
+        >
+          {{ project.company }} / {{ project.role }}
+        </p>
       </div>
 
       <div

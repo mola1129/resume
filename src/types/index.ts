@@ -29,15 +29,12 @@ export interface Technology {
   icon: string;
 }
 
-export type ProjectType = "web" | "mobile" | "infrastructure" | "data";
-
 export interface Project {
   name: string;
   period: string;
   company?: string;
   role: string;
   description: string;
-  type: ProjectType;
   technologies: Technology[];
   achievements?: string[];
 }
