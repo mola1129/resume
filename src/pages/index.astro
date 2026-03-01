@@ -42,11 +42,7 @@ const projectsWithHtml = await Promise.all(
       <div class="grid grid-cols-1 gap-8 md:grid-cols-[280px_1fr]">
         <!-- 左カラム: サイドバー -->
         <aside>
-          <ProfileSidebar
-            client:load
-            profile={profile}
-            profileImageSrc="/profile.png"
-          />
+          <ProfileSidebar profile={profile} profileImageSrc="/profile.png" />
         </aside>
 
         <!-- 右カラム: メインコンテンツ -->
@@ -66,12 +62,12 @@ const projectsWithHtml = await Promise.all(
 
           <!-- Project Experience -->
           <section>
-            <ProjectExperience client:load projects={projectsWithHtml} />
+            <ProjectExperience projects={projectsWithHtml} />
           </section>
 
           <!-- Skills -->
           <section>
-            <SkillsSection client:load categories={skills} />
+            <SkillsSection categories={skills} />
           </section>
         </div>
       </div>
