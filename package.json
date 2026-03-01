@@ -7,6 +7,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "typecheck": "pnpm run typecheck:astro && pnpm run typecheck:vue",
+    "typecheck:astro": "astro check",
+    "typecheck:vue": "vue-tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write",
@@ -37,9 +40,11 @@
     "node": "^24"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.6",
     "@eslint/js": "^9.39.2",
     "@iconify/json": "^2.2.444",
     "@playwright/test": "^1.57.0",
+    "@types/node": "^25.3.3",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^1.5.0",
@@ -52,7 +57,8 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.51.0",
     "unplugin-icons": "^23.0.1",
-    "vue-eslint-parser": "^10.2.0"
+    "vue-eslint-parser": "^10.2.0",
+    "vue-tsc": "^3.2.5"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
