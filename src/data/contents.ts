@@ -23,7 +23,7 @@ export const profile: Profile = {
 };
 
 export const careerSummary =
-  "フロントエンドとバックエンドの両領域でWebアプリケーション開発の経験があります。特に**TypeScript/Vue.js/Nuxt.js**と**Java/Spring Boot**を得意とし、LINEヤフーにて[DS.INSIGHT](https://ds.yahoo.co.jp/service/insight/)をはじめとするデータ分析ツールの開発に携わってきました。直近ではスクラムマスターとしてチーム開発を推進しながら、**OpenAI API**やServer-Sent Eventsを活用したAI分析機能の開発や、開発フロー全体への生成AI導入にも取り組んでいます。";
+  "フロントエンドとバックエンドの両領域でWebアプリケーション開発の経験があります。特にTypeScript/Vue.js/Nuxt.jsとJava/Spring Bootを得意とし、LINEヤフーにて[DS.INSIGHT](https://ds.yahoo.co.jp/service/insight/)をはじめとするデータ分析ツールの開発に携わってきました。直近ではスクラムマスターとしてチーム開発を推進しながら、OpenAI APIやServer-Sent Eventsを活用したAI分析機能の開発や、開発フロー全体への生成AI導入にも取り組んでいます。";
 
 export const projects: Project[] = [
   {
