@@ -66,10 +66,13 @@ const period = computed(() => {
         </p>
       </div>
 
+      <!-- 固定データからビルド時に生成したHTMLのみを描画する -->
+      <!-- eslint-disable vue/no-v-html -->
       <div
         class="project-content mb-5 text-base leading-relaxed text-slate-700"
         v-html="project.descriptionHtml"
       />
+      <!-- eslint-enable vue/no-v-html -->
 
       <div
         v-if="project.achievementsHtml && project.achievementsHtml.length > 0"
@@ -89,6 +92,8 @@ const period = computed(() => {
             class="flex gap-2"
           >
             <span class="shrink-0 text-slate-400" aria-hidden="true">▸</span>
+            <!-- 固定データからビルド時に生成したHTMLのみを描画する -->
+            <!-- eslint-disable-next-line vue/no-v-html -->
             <span v-html="achievement" />
           </li>
         </ul>

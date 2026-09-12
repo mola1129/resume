@@ -62,7 +62,7 @@ const projectsWithHtml = await Promise.all(
 
           <!-- Project Experience -->
           <section>
-            <ProjectExperience projects={projectsWithHtml} />
+            <ProjectExperience client:load projects={projectsWithHtml} />
           </section>
 
           <!-- Skills -->
