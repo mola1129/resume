@@ -40,6 +40,7 @@ export function calculateDuration(period: string): string {
  */
 export function formatDateJapanese(date: Date = new Date()): string {
   return new Intl.DateTimeFormat("ja-JP", {
+    timeZone: "Asia/Tokyo",
     year: "numeric",
     month: "long",
     day: "numeric",
