@@ -23,16 +23,16 @@ export const profile: Profile = {
 };
 
 export const careerSummary =
-  "フロントエンドとバックエンドの両領域でWebアプリケーション開発の経験があります。特にTypeScript/Vue.js/Nuxt.jsとJava/Spring Bootを得意とし、LINEヤフーにて[DS.INSIGHT](https://ds.yahoo.co.jp/service/insight/)をはじめとするデータ分析ツールの開発に携わってきました。直近ではスクラムマスターとしてチーム開発を推進しながら、OpenAI APIやServer-Sent Eventsを活用したAI分析機能の開発や、開発フロー全体への生成AI導入にも取り組んでいます。";
+  "フロントエンドとバックエンドの両方でWebアプリケーションを開発してきました。TypeScript・Vue.js・Nuxt.js、Java・Spring Bootを軸に、複数の機能開発で開発リードを担当しています。直近では、検索データをAIで分析する機能の本実装をリードし、本番リリースまで推進しました。";
 
 export const projects: Project[] = [
   {
     name: "検索データを分析・可視化する社内ツールの開発",
     period: "2023/11 - 現在",
     company: "LINEヤフー株式会社",
-    role: "フロントエンド兼バックエンドエンジニア, スクラムマスター",
+    role: "フロントエンド・バックエンドエンジニア、機能開発リード兼スクラムマスター",
     description:
-      "Yahoo! JAPANの検索データのトレンドや傾向を分析・可視化する社内向けツールの開発。",
+      "検索データの傾向を分析・可視化する社内ツールを開発しています。社内の営業担当者も広告提案に活用しています。",
     skills: [
       "typescript",
       "vue",
@@ -46,11 +46,10 @@ export const projects: Project[] = [
       "kubernetes",
     ],
     achievements: [
-      "Vue.js (Nuxt.js), SCSSによるフロントエンドの設計・実装",
-      "Node.js (Nitro.js), Prisma, MySQLによるバックエンドのAPI設計・実装",
-      "OpenAI APIとServer-Sent Eventsを活用したAI分析機能を開発し、検索データの分析業務を効率化",
-      "開発フローに生成AIを導入し、JIRAチケットからの実装計画作成、コード実装、コードレビュー、PR作成までをAIで効率化",
-      "スクラムマスターとしてスクラムイベントの円滑な進行やチームメンバーの技術的課題の解決, 機能開発のスケジュール管理を担当",
+      "Vue.js・Nuxt.jsによる画面と、Node.js・Nitro・Prisma・MySQLによるAPIを設計・実装しました。",
+      "複数の機能開発で開発リードを担当しました。検索データをAIで分析する機能では、他のメンバーが作成・検証したプロトタイプを基に、バックエンドを中心としてBFF・フロントエンドを含む本実装を推進しました。",
+      "AIが検索行動を時系列のフェーズに分類し、傾向と根拠キーワードを提示する機能を開発しました。候補モデルの出力品質・応答速度・コストを比較し、SSEで結果を段階的に表示しました。",
+      "機能開発リード兼スクラムマスターとして、見積もり、タスク分担、技術提案の取りまとめ、開発中の課題解決、テストチームとの調整を担当しました。",
     ],
   },
   {

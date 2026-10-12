@@ -81,7 +81,7 @@ const period = computed(() => {
         <h4
           class="mb-2 text-sm font-semibold tracking-wide text-slate-600 uppercase md:text-base"
         >
-          成果・実績
+          担当・実績
         </h4>
         <ul
           class="project-content space-y-1.5 text-sm text-slate-700 md:text-base"
