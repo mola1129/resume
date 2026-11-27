@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+作業手順（`main` へ直接 push しない、変更はブランチとプルリクエスト、CI を緑にしてからレビューに出す、リリース承認は人間）は [AGENTS.md](AGENTS.md) を参照してください。
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## プロジェクト概要
