@@ -40,7 +40,8 @@ jobs:
 
   test:
     name: Visual regression
-    runs-on: ubuntu-latest
+    # ubuntu-latest is 26.04. Playwright 1.57 cannot install Chromium there.
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
 
     steps:
