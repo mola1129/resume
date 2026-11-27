@@ -15,6 +15,7 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "test": "playwright test",
+    "test:unit": "vitest run",
     "test:ui": "playwright test --ui",
     "test:update": "playwright test --update-snapshots",
     "test:report": "playwright show-report"
@@ -57,6 +58,7 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.51.0",
     "unplugin-icons": "^23.0.1",
+    "vitest": "^5.1.2",
     "vue-eslint-parser": "^10.2.0",
     "vue-tsc": "^3.2.5"
   },
