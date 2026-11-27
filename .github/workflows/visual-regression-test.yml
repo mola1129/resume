@@ -2,8 +2,7 @@ name: CI
 
 on:
   pull_request:
-    # 積み上げ PR の base が main 以外の間も CI を走らせる。
-    branches: [main, cursor/fix-duration-unit-tests-ci-fec5]
+    branches: [main]
   push:
     branches: [main]
   workflow_dispatch:
